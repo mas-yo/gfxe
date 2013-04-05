@@ -3,7 +3,7 @@
 #import "templateViewController.h"
 #import "EAGLView.h"
 
-#include "templateApp.h"
+#include "gfxApp.h"
 
 
 @interface templateViewController ()
@@ -37,7 +37,7 @@
 	glGetRenderbufferParameteriv( GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH , &width  );
 	glGetRenderbufferParameteriv( GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height );
 	
-	templateApp.Init( width, height );
+	gfxApp.Init( width, height );
     
     animating = FALSE;
     animationFrameInterval = 1;
@@ -132,7 +132,7 @@
 {
 	[(EAGLView *)self.view setFramebuffer];
 
-	if( templateApp.Draw ) templateApp.Draw();
+	if( gfxApp.Draw ) gfxApp.Draw();
 
     [(EAGLView *)self.view presentFramebuffer];
 }

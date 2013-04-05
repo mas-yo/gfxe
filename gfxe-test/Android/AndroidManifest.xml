@@ -7,7 +7,7 @@
 
 
     <application android:icon="@drawable/icon" android:label="gfxe-test" android:debuggable="false">
-        <activity android:name="com.android.templateApp.templateApp"
+        <activity android:name="com.android.gfxApp.gfxApp"
                   android:label="gfxe-test" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:launchMode="singleTask" android:configChanges="orientation|keyboardHidden" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

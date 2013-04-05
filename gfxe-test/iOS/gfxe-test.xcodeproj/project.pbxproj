@@ -13,6 +13,7 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		DA5B8098170EAC4C0040A075 /* gfxApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B8096170EAC4C0040A075 /* gfxApp.cpp */; };
 		E002BCF5135BEC0A00FCFC0B /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */; };
 		E002BCF6135BEC0A00FCFC0B /* templateAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF2135BEC0A00FCFC0B /* templateAppDelegate.mm */; };
 		E002BCF7135BEC0A00FCFC0B /* templateViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF4135BEC0A00FCFC0B /* templateViewController.mm */; };
@@ -239,7 +240,6 @@
 		E0B258C9146360E800EED75F /* uncompr.c in Sources */ = {isa = PBXBuildFile; fileRef = E0B257D3146360E700EED75F /* uncompr.c */; };
 		E0B258CA146360E800EED75F /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = E0B257D4146360E700EED75F /* unzip.c */; };
 		E0B258CB146360E800EED75F /* zutil.c in Sources */ = {isa = PBXBuildFile; fileRef = E0B257D8146360E700EED75F /* zutil.c */; };
-		E0CEEFC713A2CF0A008C55D3 /* templateApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E0CEEFC513A2CF0A008C55D3 /* templateApp.cpp */; };
 		E0CEF06213A2F800008C55D3 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E0CEF06013A2F800008C55D3 /* fragment.glsl */; };
 		E0CEF06313A2F800008C55D3 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E0CEF06113A2F800008C55D3 /* vertex.glsl */; };
 /* End PBXBuildFile section */
@@ -252,6 +252,8 @@
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		DA5B8096170EAC4C0040A075 /* gfxApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gfxApp.cpp; path = ../gfxApp.cpp; sourceTree = "<group>"; };
+		DA5B8097170EAC4C0040A075 /* gfxApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gfxApp.h; path = ../gfxApp.h; sourceTree = "<group>"; };
 		E002BCEF135BEC0A00FCFC0B /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		E002BCF1135BEC0A00FCFC0B /* templateAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = templateAppDelegate.h; sourceTree = "<group>"; };
@@ -752,8 +754,6 @@
 		E0B257D8146360E700EED75F /* zutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zutil.c; sourceTree = "<group>"; };
 		E0B257D9146360E700EED75F /* zutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zutil.h; sourceTree = "<group>"; };
 		E0B7E9D313849A730076BE71 /* gfxe-test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "gfxe-test-Info.plist"; sourceTree = "<group>"; };
-		E0CEEFC513A2CF0A008C55D3 /* templateApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = templateApp.cpp; path = ../templateApp.cpp; sourceTree = SOURCE_ROOT; };
-		E0CEEFC613A2CF0A008C55D3 /* templateApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = templateApp.h; path = ../templateApp.h; sourceTree = SOURCE_ROOT; };
 		E0CEF06013A2F800008C55D3 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fragment.glsl; path = ../fragment.glsl; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		E0CEF06113A2F800008C55D3 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vertex.glsl; path = ../vertex.glsl; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 /* End PBXFileReference section */
@@ -799,8 +799,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				DA5B8095170EAC410040A075 /* gfxApp */,
 				E0B255BB146360E700EED75F /* gfx */,
-				E0EBC6EF13650F3600336FBA /* templateApp */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -842,6 +842,15 @@
 				E08EAC7C1372315F00708602 /* OpenAL.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA5B8095170EAC410040A075 /* gfxApp */ = {
+			isa = PBXGroup;
+			children = (
+				DA5B8096170EAC4C0040A075 /* gfxApp.cpp */,
+				DA5B8097170EAC4C0040A075 /* gfxApp.h */,
+			);
+			name = gfxApp;
 			sourceTree = "<group>";
 		};
 		E0B255BB146360E700EED75F /* gfx */ = {
@@ -1405,15 +1414,6 @@
 			path = zlib;
 			sourceTree = "<group>";
 		};
-		E0EBC6EF13650F3600336FBA /* templateApp */ = {
-			isa = PBXGroup;
-			children = (
-				E0CEEFC513A2CF0A008C55D3 /* templateApp.cpp */,
-				E0CEEFC613A2CF0A008C55D3 /* templateApp.h */,
-			);
-			name = templateApp;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1485,7 +1485,6 @@
 				E002BCF5135BEC0A00FCFC0B /* EAGLView.mm in Sources */,
 				E002BCF6135BEC0A00FCFC0B /* templateAppDelegate.mm in Sources */,
 				E002BCF7135BEC0A00FCFC0B /* templateViewController.mm in Sources */,
-				E0CEEFC713A2CF0A008C55D3 /* templateApp.cpp in Sources */,
 				E0B257DA146360E700EED75F /* audio.cpp in Sources */,
 				E0B257DB146360E700EED75F /* bChunk.cpp in Sources */,
 				E0B257DC146360E700EED75F /* bDNA.cpp in Sources */,
@@ -1706,6 +1705,7 @@
 				E0B258C9146360E800EED75F /* uncompr.c in Sources */,
 				E0B258CA146360E800EED75F /* unzip.c in Sources */,
 				E0B258CB146360E800EED75F /* zutil.c in Sources */,
+				DA5B8098170EAC4C0040A075 /* gfxApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,7 @@
 #import "templateAppDelegate.h"
 #import "templateViewController.h"
 
-#include "templateApp.h"
+#include "gfxApp.h"
 
 @implementation templateAppDelegate
 
@@ -59,9 +59,9 @@
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-	if( templateApp.Accelerometer )
+	if( gfxApp.Accelerometer )
 	{
-		templateApp.Accelerometer( acceleration.x,
+		gfxApp.Accelerometer( acceleration.x,
 								   acceleration.y,
 								   acceleration.z );
 	}

@@ -105,14 +105,14 @@
 			<locationURI>copy_PARENT/gfx</locationURI>
 		</link>
 		<link>
-			<name>jni/templateApp.cpp</name>
+			<name>jni/gfxApp.cpp</name>
 			<type>1</type>
-			<locationURI>copy_PARENT1/templateApp.cpp</locationURI>
+			<locationURI>copy_PARENT1/gfxApp.cpp</locationURI>
 		</link>
 		<link>
-			<name>jni/templateApp.h</name>
+			<name>jni/gfxApp.h</name>
 			<type>1</type>
-			<locationURI>copy_PARENT1/templateApp.h</locationURI>
+			<locationURI>copy_PARENT1/gfxApp.h</locationURI>
 		</link>
 	</linkedResources>
 	<variableList>

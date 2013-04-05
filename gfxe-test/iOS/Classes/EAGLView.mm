@@ -30,7 +30,7 @@ as being the original software.
 
 #import "EAGLView.h"
 
-#include "templateApp.h"
+#include "gfxApp.h"
 
 @interface EAGLView (PrivateMethods)
 - (void)createFramebuffer;
@@ -206,9 +206,9 @@ as being the original software.
 	{
 		pos = [ touch locationInView:self ];
 		
-		if( templateApp.ToucheBegan )
+		if( gfxApp.ToucheBegan )
 		{
-			templateApp.ToucheBegan( pos.x,
+			gfxApp.ToucheBegan( pos.x,
 									 pos.y,
 									 [ [ touches anyObject ] tapCount ] );
 		}
@@ -224,9 +224,9 @@ as being the original software.
 	{
 		pos = [ touch locationInView:self ];
 		
-		if( templateApp.ToucheMoved )
+		if( gfxApp.ToucheMoved )
 		{
-			templateApp.ToucheMoved( pos.x,
+			gfxApp.ToucheMoved( pos.x,
 									 pos.y,
 									 [ [ touches anyObject ] tapCount ] );
 		}
@@ -242,9 +242,9 @@ as being the original software.
 	{
 		pos = [ touch locationInView:self ];
 		
-		if( templateApp.ToucheEnded )
+		if( gfxApp.ToucheEnded )
 		{
-			templateApp.ToucheEnded( pos.x,
+			gfxApp.ToucheEnded( pos.x,
 									 pos.y,
 									 [ [ touches anyObject ] tapCount ] );
 		}

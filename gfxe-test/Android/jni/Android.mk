@@ -14,7 +14,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_ARM_MODE := arm
-LOCAL_MODULE   := templateApp
+LOCAL_MODULE   := gfxApp
 LOCAL_CFLAGS   := -O3 -mno-thumb 
 LOCAL_CPPFLAGS := $(LOCAL_CFLAGS)
 LOCAL_C_INCLUDES = $(LOCAL_PATH)/../../../gfx/openal/
