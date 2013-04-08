@@ -11,14 +11,14 @@
 
 #include <vector>
 
-template <class T>
-void delete_all( std::vector<T> &vec )
-{
-    typename std::vector<T>::iterator it = vec.begin();
-    for( ; it != vec.end(); ++it ) {
-        delete (*it);
-    }
-    vec.clear();
-}
+//template <class T>
+//void delete_all( std::vector<T> &vec )
+//{
+//    typename std::vector<T>::iterator it = vec.begin();
+//    for( ; it != vec.end(); ++it ) {
+//        delete (*it);
+//    }
+//    vec.clear();
+//}
 
 #endif /* defined(__gfxe_test__stlutil__) */

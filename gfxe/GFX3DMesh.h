@@ -18,15 +18,15 @@ namespace gfxe {
     class GFX3DMesh : public ragtime::RTObject
     {
     private:
-        OBJMESH* m_prObjMesh; //reference only
-        GFXShaderProgram* m_prShader;
+        OBJMESH* m_pObjMesh; //reference only
+        GFXShaderProgram* m_pShader;
 
     public:
         GFX3DMesh( OBJMESH* pObjMesh, GFXShaderProgram* pShader );
         virtual ~GFX3DMesh();
 
         void Create();
-        GFXShaderProgram* GetShaderProgram() { return m_prShader; }
+        GFXShaderProgram* GetShaderProgram() { return m_pShader; }
 
     };
 }

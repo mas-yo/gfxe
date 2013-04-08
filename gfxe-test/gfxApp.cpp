@@ -29,6 +29,7 @@ as being the original software.
 
 #include "GFX3DModel.h"
 #include "GFXShaderManager.h"
+#include "RTOwn.h"
 
 #define OBJ_FILE (char*)"model.obj"
 #define VERTEX_SHADER (char*)"vertex.glsl"
@@ -39,6 +40,7 @@ as being the original software.
 //OBJMESH* objmesh = NULL;
 //PROGRAM* program = NULL;
 using namespace gfxe;
+using namespace ragtime;
 
 GFX3DModel* pModel;
 

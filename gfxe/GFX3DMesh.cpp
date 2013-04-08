@@ -12,17 +12,16 @@
 
 using namespace gfxe;
 
-GFX3DMesh::GFX3DMesh( OBJMESH* pObjMesh, GFXShaderProgram* pShader ) : m_prObjMesh( pObjMesh ), m_prShader( pShader )
+GFX3DMesh::GFX3DMesh( OBJMESH* pObjMesh, GFXShaderProgram* pShader ) : m_pObjMesh( pObjMesh ), m_pShader( pShader )
 {
 
 }
 
 GFX3DMesh::~GFX3DMesh()
 {
-    
 }
 
 void GFX3DMesh::Create()
 {
-    create_vao(m_prObjMesh, m_prShader->GetProgram() );
+    create_vao(m_pObjMesh, m_pShader->GetProgram() );
 }

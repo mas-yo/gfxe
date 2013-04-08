@@ -4,17 +4,28 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../gfxe/GFX3DModel.h"
+         timestampString = "387099927.319091"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "23"
+         endingLineNumber = "23"
+         landmarkName = "class PredObjFree"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../../gfxe/stlutil.h"
-         timestampString = "386858700.545768"
+         filePath = "../../ragtime/RTOwn.h"
+         timestampString = "387111478.250471"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "17"
-         endingLineNumber = "17"
-         landmarkName = "delete_all( std::vector&lt;T&gt; &amp;vec )"
-         landmarkType = "7">
+         startingLineNumber = "75"
+         endingLineNumber = "75">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

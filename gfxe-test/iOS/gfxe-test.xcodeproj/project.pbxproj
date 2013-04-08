@@ -23,6 +23,7 @@
 		DA5B80AF170EEF500040A075 /* stlutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80AD170EEF4F0040A075 /* stlutil.cpp */; };
 		DA5B80B1170EF4EC0040A075 /* model.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA5B80B0170EF4EC0040A075 /* model.obj */; };
 		DA5B80B4170EFA160040A075 /* GFXShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80B2170EFA160040A075 /* GFXShaderManager.cpp */; };
+		DAB02E6717126F9D0019510D /* RTOwn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAB02E6517126F9D0019510D /* RTOwn.cpp */; };
 		E002BCF5135BEC0A00FCFC0B /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */; };
 		E002BCF6135BEC0A00FCFC0B /* templateAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF2135BEC0A00FCFC0B /* templateAppDelegate.mm */; };
 		E002BCF7135BEC0A00FCFC0B /* templateViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF4135BEC0A00FCFC0B /* templateViewController.mm */; };
@@ -280,6 +281,8 @@
 		DA5B80B0170EF4EC0040A075 /* model.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = model.obj; path = ../model.obj; sourceTree = "<group>"; };
 		DA5B80B2170EFA160040A075 /* GFXShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXShaderManager.cpp; sourceTree = "<group>"; };
 		DA5B80B3170EFA160040A075 /* GFXShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXShaderManager.h; sourceTree = "<group>"; };
+		DAB02E6517126F9D0019510D /* RTOwn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTOwn.cpp; sourceTree = "<group>"; };
+		DAB02E6617126F9D0019510D /* RTOwn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTOwn.h; sourceTree = "<group>"; };
 		E002BCEF135BEC0A00FCFC0B /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		E002BCF1135BEC0A00FCFC0B /* templateAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = templateAppDelegate.h; sourceTree = "<group>"; };
@@ -909,6 +912,8 @@
 			children = (
 				DA5B809B170EBBF10040A075 /* RTObject.cpp */,
 				DA5B809C170EBBF10040A075 /* RTObject.h */,
+				DAB02E6517126F9D0019510D /* RTOwn.cpp */,
+				DAB02E6617126F9D0019510D /* RTOwn.h */,
 			);
 			name = ragtime;
 			path = ../../ragtime;
@@ -1776,6 +1781,7 @@
 				DA5B80AC170EDE6E0040A075 /* GFXShaderSimple.cpp in Sources */,
 				DA5B80AF170EEF500040A075 /* stlutil.cpp in Sources */,
 				DA5B80B4170EFA160040A075 /* GFXShaderManager.cpp in Sources */,
+				DAB02E6717126F9D0019510D /* RTOwn.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1786,9 +1792,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1806,8 +1814,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
