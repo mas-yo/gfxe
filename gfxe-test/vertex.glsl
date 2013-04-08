@@ -27,15 +27,13 @@ as being the original software.
 
 uniform mediump mat4 MODELVIEWPROJECTIONMATRIX;
 
-attribute mediump vec4 POSITION;
+attribute mediump vec3 POSITION;
 
-attribute lowp vec4 COLOR;
-
-varying lowp vec4 color;
+attribute lowp vec3 NORMAL;
+varying lowp vec3 normal;
 
 void main( void ) {
 
-	gl_Position = MODELVIEWPROJECTIONMATRIX * POSITION;
-
-	color = COLOR;
+    normal = (NORMAL + 1.0) * 0.5;
+	gl_Position = MODELVIEWPROJECTIONMATRIX * vec4( POSITION, 1.0 );
 }

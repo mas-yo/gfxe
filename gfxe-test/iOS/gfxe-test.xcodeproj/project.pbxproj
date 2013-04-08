@@ -14,6 +14,15 @@
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		DA5B8098170EAC4C0040A075 /* gfxApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B8096170EAC4C0040A075 /* gfxApp.cpp */; };
+		DA5B809D170EBBF10040A075 /* RTObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B809B170EBBF10040A075 /* RTObject.cpp */; };
+		DA5B80A0170EC1850040A075 /* GFX3DModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B809E170EC1850040A075 /* GFX3DModel.cpp */; };
+		DA5B80A3170ECADC0040A075 /* GFX3DMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80A1170ECADC0040A075 /* GFX3DMesh.cpp */; };
+		DA5B80A6170ECECC0040A075 /* glutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80A4170ECECC0040A075 /* glutil.cpp */; };
+		DA5B80A9170ED6B60040A075 /* GFXShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80A7170ED6B60040A075 /* GFXShaderProgram.cpp */; };
+		DA5B80AC170EDE6E0040A075 /* GFXShaderSimple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80AA170EDE6E0040A075 /* GFXShaderSimple.cpp */; };
+		DA5B80AF170EEF500040A075 /* stlutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80AD170EEF4F0040A075 /* stlutil.cpp */; };
+		DA5B80B1170EF4EC0040A075 /* model.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA5B80B0170EF4EC0040A075 /* model.obj */; };
+		DA5B80B4170EFA160040A075 /* GFXShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80B2170EFA160040A075 /* GFXShaderManager.cpp */; };
 		E002BCF5135BEC0A00FCFC0B /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */; };
 		E002BCF6135BEC0A00FCFC0B /* templateAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF2135BEC0A00FCFC0B /* templateAppDelegate.mm */; };
 		E002BCF7135BEC0A00FCFC0B /* templateViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF4135BEC0A00FCFC0B /* templateViewController.mm */; };
@@ -254,6 +263,23 @@
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		DA5B8096170EAC4C0040A075 /* gfxApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gfxApp.cpp; path = ../gfxApp.cpp; sourceTree = "<group>"; };
 		DA5B8097170EAC4C0040A075 /* gfxApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gfxApp.h; path = ../gfxApp.h; sourceTree = "<group>"; };
+		DA5B809B170EBBF10040A075 /* RTObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTObject.cpp; sourceTree = "<group>"; };
+		DA5B809C170EBBF10040A075 /* RTObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTObject.h; sourceTree = "<group>"; };
+		DA5B809E170EC1850040A075 /* GFX3DModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFX3DModel.cpp; sourceTree = "<group>"; };
+		DA5B809F170EC1850040A075 /* GFX3DModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFX3DModel.h; sourceTree = "<group>"; };
+		DA5B80A1170ECADC0040A075 /* GFX3DMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFX3DMesh.cpp; sourceTree = "<group>"; };
+		DA5B80A2170ECADC0040A075 /* GFX3DMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFX3DMesh.h; sourceTree = "<group>"; };
+		DA5B80A4170ECECC0040A075 /* glutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glutil.cpp; sourceTree = "<group>"; };
+		DA5B80A5170ECECC0040A075 /* glutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glutil.h; sourceTree = "<group>"; };
+		DA5B80A7170ED6B60040A075 /* GFXShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXShaderProgram.cpp; sourceTree = "<group>"; };
+		DA5B80A8170ED6B60040A075 /* GFXShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXShaderProgram.h; sourceTree = "<group>"; };
+		DA5B80AA170EDE6E0040A075 /* GFXShaderSimple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXShaderSimple.cpp; sourceTree = "<group>"; };
+		DA5B80AB170EDE6E0040A075 /* GFXShaderSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXShaderSimple.h; sourceTree = "<group>"; };
+		DA5B80AD170EEF4F0040A075 /* stlutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stlutil.cpp; sourceTree = "<group>"; };
+		DA5B80AE170EEF4F0040A075 /* stlutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stlutil.h; sourceTree = "<group>"; };
+		DA5B80B0170EF4EC0040A075 /* model.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = model.obj; path = ../model.obj; sourceTree = "<group>"; };
+		DA5B80B2170EFA160040A075 /* GFXShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXShaderManager.cpp; sourceTree = "<group>"; };
+		DA5B80B3170EFA160040A075 /* GFXShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXShaderManager.h; sourceTree = "<group>"; };
 		E002BCEF135BEC0A00FCFC0B /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		E002BCF1135BEC0A00FCFC0B /* templateAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = templateAppDelegate.h; sourceTree = "<group>"; };
@@ -799,8 +825,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				DA5B8095170EAC410040A075 /* gfxApp */,
+				DA5B809A170EBB100040A075 /* ragtime */,
 				E0B255BB146360E700EED75F /* gfx */,
+				DA5B8099170EB5A30040A075 /* gfxe */,
+				DA5B8095170EAC410040A075 /* gfxApp */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -822,6 +850,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA5B80B0170EF4EC0040A075 /* model.obj */,
 				E0CEF06013A2F800008C55D3 /* fragment.glsl */,
 				E0CEF06113A2F800008C55D3 /* vertex.glsl */,
 				E03906ED1380CCD400ECB6EC /* templateViewController.xib */,
@@ -851,6 +880,38 @@
 				DA5B8097170EAC4C0040A075 /* gfxApp.h */,
 			);
 			name = gfxApp;
+			sourceTree = "<group>";
+		};
+		DA5B8099170EB5A30040A075 /* gfxe */ = {
+			isa = PBXGroup;
+			children = (
+				DA5B80AD170EEF4F0040A075 /* stlutil.cpp */,
+				DA5B80AE170EEF4F0040A075 /* stlutil.h */,
+				DA5B80A4170ECECC0040A075 /* glutil.cpp */,
+				DA5B80A5170ECECC0040A075 /* glutil.h */,
+				DA5B809E170EC1850040A075 /* GFX3DModel.cpp */,
+				DA5B809F170EC1850040A075 /* GFX3DModel.h */,
+				DA5B80A1170ECADC0040A075 /* GFX3DMesh.cpp */,
+				DA5B80A2170ECADC0040A075 /* GFX3DMesh.h */,
+				DA5B80A7170ED6B60040A075 /* GFXShaderProgram.cpp */,
+				DA5B80A8170ED6B60040A075 /* GFXShaderProgram.h */,
+				DA5B80AA170EDE6E0040A075 /* GFXShaderSimple.cpp */,
+				DA5B80AB170EDE6E0040A075 /* GFXShaderSimple.h */,
+				DA5B80B2170EFA160040A075 /* GFXShaderManager.cpp */,
+				DA5B80B3170EFA160040A075 /* GFXShaderManager.h */,
+			);
+			name = gfxe;
+			path = ../../gfxe;
+			sourceTree = "<group>";
+		};
+		DA5B809A170EBB100040A075 /* ragtime */ = {
+			isa = PBXGroup;
+			children = (
+				DA5B809B170EBBF10040A075 /* RTObject.cpp */,
+				DA5B809C170EBBF10040A075 /* RTObject.h */,
+			);
+			name = ragtime;
+			path = ../../ragtime;
 			sourceTree = "<group>";
 		};
 		E0B255BB146360E700EED75F /* gfx */ = {
@@ -1471,6 +1532,7 @@
 				E03906EE1380CCD400ECB6EC /* templateViewController.xib in Resources */,
 				E0CEF06213A2F800008C55D3 /* fragment.glsl in Resources */,
 				E0CEF06313A2F800008C55D3 /* vertex.glsl in Resources */,
+				DA5B80B1170EF4EC0040A075 /* model.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1706,6 +1768,14 @@
 				E0B258CA146360E800EED75F /* unzip.c in Sources */,
 				E0B258CB146360E800EED75F /* zutil.c in Sources */,
 				DA5B8098170EAC4C0040A075 /* gfxApp.cpp in Sources */,
+				DA5B809D170EBBF10040A075 /* RTObject.cpp in Sources */,
+				DA5B80A0170EC1850040A075 /* GFX3DModel.cpp in Sources */,
+				DA5B80A3170ECADC0040A075 /* GFX3DMesh.cpp in Sources */,
+				DA5B80A6170ECECC0040A075 /* glutil.cpp in Sources */,
+				DA5B80A9170ED6B60040A075 /* GFXShaderProgram.cpp in Sources */,
+				DA5B80AC170EDE6E0040A075 /* GFXShaderSimple.cpp in Sources */,
+				DA5B80AF170EEF500040A075 /* stlutil.cpp in Sources */,
+				DA5B80B4170EFA160040A075 /* GFXShaderManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

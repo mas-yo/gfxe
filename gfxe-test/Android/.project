@@ -114,6 +114,16 @@
 			<type>1</type>
 			<locationURI>copy_PARENT1/gfxApp.h</locationURI>
 		</link>
+		<link>
+			<name>jni/gfxe</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/gfxe</locationURI>
+		</link>
+		<link>
+			<name>jni/ragtime</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/ragtime</locationURI>
+		</link>
 	</linkedResources>
 	<variableList>
 		<variable>

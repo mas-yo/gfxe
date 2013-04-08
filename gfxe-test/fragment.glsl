@@ -25,9 +25,9 @@ as being the original software.
 
 */
 
-varying lowp vec4 color;
+varying lowp vec3 normal;
 
 void main( void ) {
 
-	gl_FragColor = color;
+	gl_FragColor = vec4( normal, 1.0 );
 }
