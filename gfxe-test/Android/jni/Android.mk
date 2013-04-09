@@ -7,7 +7,9 @@ SRC_FILES := $(wildcard $(LOCAL_PATH)/../../../gfx/openal/*.c)
 SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%) 
 LOCAL_SRC_FILES = $(SRC_FILES)
 LOCAL_LDLIBS = -llog
-LOCAL_CFLAGS := -O3 -mno-thumb
+LOCAL_CFLAGS := -O3
+#LOCAL_CPPFLAGS := -O3
+#LOCAL_CFLAGS := -O3 -mno-thumb
 LOCAL_CPPFLAGS := -O3 -mno-thumb
 include $(BUILD_SHARED_LIBRARY)
 
@@ -17,7 +19,7 @@ LOCAL_ARM_MODE := arm
 LOCAL_MODULE   := gfxApp
 LOCAL_CFLAGS   := -O3 -mno-thumb 
 LOCAL_CPPFLAGS := $(LOCAL_CFLAGS)
-LOCAL_C_INCLUDES = $(LOCAL_PATH)/../../../gfx/openal/ $(LOCAL_PATH)/../../../gfxe/  $(LOCAL_PATH)/../../../ragtime/
+LOCAL_C_INCLUDES = $(LOCAL_PATH)/../../../gfx/openal/ $(LOCAL_PATH)/../../../gfx/ $(LOCAL_PATH)/../../../gfxe/  $(LOCAL_PATH)/../../../ragtime/
 SRC_FILES := $(wildcard $(LOCAL_PATH)/../../*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../gfx/*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../gfx/bullet/*.cpp)
@@ -28,11 +30,16 @@ SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../gfx/zlib/*.c)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../gfx/detour/*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../gfx/recast/*.cpp)
 SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../gfx/vorbis/*.c)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../gfxe/*.cpp)
+SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../ragtime/*.cpp)
 SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%)
 LOCAL_SRC_FILES := $(SRC_FILES)
 LOCAL_SHARED_LIBRARIES := libopenal
 LOCAL_LDLIBS := -L$(LOCAL_PATH)/../libs/armeabi 
-LOCAL_LDLIBS += -lz -lm -ldl -lGLESv2 -lEGL -llog -lopenal
-LOCAL_CFLAGS := -O3 -mno-thumb -Wno-write-strings
-LOCAL_CPPFLAGS := -O3 -mno-thumb -Wno-write-strings
+LOCAL_LDLIBS += -lz -lm -ldl -lGLESv2 -lEGL -llog
+# -lpthread -lopenal
+LOCAL_CFLAGS := -O3 -Wno-write-strings
+LOCAL_CPPFLAGS := -O3 -Wno-write-strings -std=c++11 -pthread -frtti -fexceptions
+#LOCAL_CFLAGS := -O3 -mno-thumb -Wno-write-strings
+#LOCAL_CPPFLAGS := -O3 -mno-thumb -Wno-write-strings -std=c++11 -pthread -frtti -fexceptions
 include $(BUILD_SHARED_LIBRARY)

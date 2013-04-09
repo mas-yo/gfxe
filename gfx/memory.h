@@ -31,6 +31,7 @@ as being the original software.
 	\brief Function prototypes and definitions to use with the MEMORY structure.
 */
 
+#define MAX_PATH 256
 
 //! Structure that allows you to manipulate memory stream.
 typedef struct

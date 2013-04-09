@@ -9,7 +9,11 @@
 #ifndef __gfxe_gfxe_h__
 #define __gfxe_gfxe_h__
 
-#include "gfx.h"
+#ifdef __IPHONE_4_0
+	#include "gfx.h"
+#else
+	#include "../../../gfx/gfx.h"
+#endif
 
 typedef OBJ         GFX3DModelInfo;
 typedef OBJMESH     GFX3DMeshInfo;
