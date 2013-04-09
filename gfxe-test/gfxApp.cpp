@@ -29,7 +29,8 @@ as being the original software.
 
 #include "GFX3DModel.h"
 #include "GFXShaderManager.h"
-#include "RTOwn.h"
+#include "GFXRenderManager.h"
+#include "Owner.h"
 
 #define OBJ_FILE (char*)"model.obj"
 #define VERTEX_SHADER (char*)"vertex.glsl"
@@ -84,6 +85,7 @@ void gfxAppInit( int width, int height )
     GFX_set_perspective(45, (float)width/(float)height, 0.1f, 100.0f, 0.0f);
 
     GFXShaderManager::Create();
+    GFXRenderManager::CreateInstance();
 
     pModel = new GFX3DModel();
     pModel->Create( OBJ_FILE );
@@ -104,10 +106,7 @@ void gfxAppDraw( void )
     vec3 u = {0, 0, 1 };
     GFX_look_at(&e, &c, &u);
 
-    glBindVertexArrayOES( pModel->GetOBJ()->objmesh[0].vao );
-    PROGRAM_draw( pModel->GetMesh(0)->GetShaderProgram()->GetProgram()) ;
-
-    glDrawElements(GL_TRIANGLES, pModel->GetOBJ()->objmesh[0].objtrianglelist[0].n_indice_array, GL_UNSIGNED_SHORT, NULL);
+    GFXRenderManager::Instance()->Render();
 }
 
 void gfxAppToucheBegan( float x, float y, unsigned int tap_count )

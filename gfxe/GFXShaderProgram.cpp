@@ -16,29 +16,30 @@ using namespace gfxe;
 //    GFXShaderProgram::s_pThis->DrawCallBack();
 //}
 
-GFXShaderProgram::GFXShaderProgram() : m_pProgram(NULL)
+GFXShaderProgram::GFXShaderProgram() : m_ownShaderProgramInfo()
 {
 
 }
 
 GFXShaderProgram::~GFXShaderProgram()
 {
-    if( m_pProgram ) {
-        m_pProgram->vertex_shader = SHADER_free( m_pProgram->vertex_shader );
-        m_pProgram->fragment_shader = SHADER_free( m_pProgram->fragment_shader );
-        m_pProgram = PROGRAM_free( m_pProgram );
-    }
 }
 
 void GFXShaderProgram::Create( const char* shaderName, const char* vertexShaderFileName, const char* fragmentShaderFileName, PROGRAMDRAWCALLBACK *drawCallBack )
 {
-    m_pProgram = PROGRAM_create( (char*)shaderName,
+    GFXShaderProgramInfo* pInfo = PROGRAM_create( (char*)shaderName,
                              (char*)vertexShaderFileName,
                              (char*)fragmentShaderFileName,
                              1,
                                 SHADER_DEBUG,
                              NULL,
                                 drawCallBack );
+
+    m_ownShaderProgramInfo.SetPointer( pInfo, []( GFXShaderProgramInfo* obj ) {
+        obj->vertex_shader = SHADER_free( obj->vertex_shader );
+        obj->fragment_shader = SHADER_free( obj->fragment_shader );
+        obj = PROGRAM_free( obj );
+    } );
 
 }
 

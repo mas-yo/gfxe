@@ -9,7 +9,8 @@
 #ifndef __gfxe_GFXShaderProgram__
 #define __gfxe_GFXShaderProgram__
 
-#include "gfx.h"
+#include "gfxe.h"
+#include "Owner.h"
 
 #define SHADER_DEBUG 1
 
@@ -18,7 +19,7 @@ namespace gfxe {
     class GFXShaderProgram
     {
     protected:
-        PROGRAM* m_pProgram;
+        ragtime::own<GFXShaderProgramInfo> m_ownShaderProgramInfo;
 
     public:
         GFXShaderProgram();
@@ -26,7 +27,7 @@ namespace gfxe {
 
         virtual void Create( const char* shaderName, const char* vertexShaderFileName, const char* fragmentShaderFileName, PROGRAMDRAWCALLBACK *drawCallBack );
 
-        PROGRAM* GetProgram() { return m_pProgram; }
+        GFXShaderProgramInfo* GetProgram() { return static_cast<GFXShaderProgramInfo*>( m_ownShaderProgramInfo ); }
     };
 
 }

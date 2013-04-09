@@ -7,12 +7,13 @@
 //
 
 #include "GFX3DMesh.h"
-#include "gfx.h"
+#include "gfxe.h"
 #include "glutil.h"
+#include "GFXRenderManager.h"
 
 using namespace gfxe;
 
-GFX3DMesh::GFX3DMesh( OBJMESH* pObjMesh, GFXShaderProgram* pShader ) : m_pObjMesh( pObjMesh ), m_pShader( pShader )
+GFX3DMesh::GFX3DMesh( OBJMESH* pMeshInfo, GFXShaderProgram* pShader ) : m_pMeshInfo( pMeshInfo ), m_pShader( pShader )
 {
 
 }
@@ -23,5 +24,15 @@ GFX3DMesh::~GFX3DMesh()
 
 void GFX3DMesh::Create()
 {
-    create_vao(m_pObjMesh, m_pShader->GetProgram() );
+    create_vao(m_pMeshInfo, m_pShader->GetProgram() );
+    GFXRenderManager::Instance()->AddRenderable( this );
+}
+
+void GFX3DMesh::Render()
+{
+    glBindVertexArrayOES( m_pMeshInfo->vao );
+    PROGRAM_draw( m_pShader->GetProgram()) ;
+
+    glDrawElements(GL_TRIANGLES, m_pMeshInfo->objtrianglelist[0].n_indice_array, GL_UNSIGNED_SHORT, NULL);
+
 }

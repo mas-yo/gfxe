@@ -6,9 +6,15 @@
 //  Copyright (c) 2013年 ROm. All rights reserved.
 //
 
-#ifndef gfxe_test_gfxe_h
-#define gfxe_test_gfxe_h
+#ifndef __gfxe_gfxe_h__
+#define __gfxe_gfxe_h__
 
+#include "gfx.h"
+
+typedef OBJ         GFX3DModelInfo;
+typedef OBJMESH     GFX3DMeshInfo;
+typedef PROGRAM     GFXShaderProgramInfo;
+typedef SHADER      GFXShaderInfo;
 
 
 #endif

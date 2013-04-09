@@ -9,24 +9,18 @@
 #ifndef __gfxe_GFX3DModel__
 #define __gfxe_GFX3DModel__
 
-#include "gfx.h"
+#include "gfxe.h"
 #include "GFXShaderProgram.h"
 #include "GFX3DMesh.h"
-#include "RTOwn.h"
+#include "Owner.h"
 #include <vector>
 
 namespace gfxe
 {
-    class PredObjFree
-    {
-    public:
-        void operator()(OBJ* obj) { OBJ_free( obj ); }
-    };    
-
     class GFX3DModel
     {
     private:
-        ragtime::own<OBJ> m_ownObj;
+        ragtime::own<GFX3DModelInfo> m_ownModelInfo;
         std::vector< ragtime::own<GFX3DMesh> > m_vecMesh;
 
     public:
@@ -34,8 +28,8 @@ namespace gfxe
         virtual ~GFX3DModel();
         
         void Create( const char* fileName );
-        OBJ* GetOBJ() { return (OBJ*)m_ownObj; }
-        GFX3DMesh* GetMesh( int idx ) { return m_vecMesh.at(idx); }
+//        GFX3DModelInfo* GetModelInfo() { return (GFX3DModelInfo*)m_ownModelInfo; }
+//        GFX3DMesh* GetMesh( int idx ) { return m_vecMesh.at(idx); }
     };
 }
 

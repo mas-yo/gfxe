@@ -7,7 +7,7 @@
 //
 
 #include "GFX3DModel.h"
-#include "gfx.h"
+#include "gfxe.h"
 #include "glutil.h"
 #include "GFXShaderSimple.h"
 #include "stlutil.h"
@@ -16,7 +16,7 @@
 using namespace gfxe;
 using namespace ragtime;
 
-GFX3DModel::GFX3DModel() : m_ownObj()
+GFX3DModel::GFX3DModel() : m_ownModelInfo()
 {
     
 }
@@ -27,7 +27,7 @@ GFX3DModel::~GFX3DModel()
 
 void GFX3DModel::Create( const char *fileName )
 {
-    OBJ* pObj = OBJ_load((char*)fileName, 1);
+    GFX3DModelInfo* pObj = OBJ_load((char*)fileName, 1);
 
     create_vbo( pObj, 0 );
 
@@ -40,5 +40,5 @@ void GFX3DModel::Create( const char *fileName )
         m_vecMesh[ m_vecMesh.size() - 1 ].SetPointer( pMesh, own<GFX3DMesh>::normalDeleter );
     }
 
-    m_ownObj.SetPointer( pObj, []( OBJ* obj ) { OBJ_free( obj ); }  );
+    m_ownModelInfo.SetPointer( pObj, []( GFX3DModelInfo* obj ) { OBJ_free( obj ); }  );
 }

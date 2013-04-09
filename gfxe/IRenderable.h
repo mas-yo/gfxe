@@ -6,9 +6,17 @@
 //  Copyright (c) 2013年 ROm. All rights reserved.
 //
 
-#ifndef gfxe_test_IRenderable_h
-#define gfxe_test_IRenderable_h
+#ifndef gfxe_IRenderable_h
+#define gfxe_IRenderable_h
 
+namespace gfxe {
+
+    class IRenderable
+    {
+    public:
+        virtual void Render() = 0;
+    };
+}
 
 
 #endif

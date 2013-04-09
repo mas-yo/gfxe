@@ -9,23 +9,25 @@
 #ifndef __gfxe_GFX3DMesh__
 #define __gfxe_GFX3DMesh__
 
-#include "RTObject.h"
-#include "gfx.h"
+#include "gfxe.h"
+#include "IRenderable.h"
 #include "GFXShaderProgram.h"
 
 namespace gfxe {
 
-    class GFX3DMesh : public ragtime::RTObject
+    class GFX3DMesh : public IRenderable
     {
     private:
-        OBJMESH* m_pObjMesh; //reference only
+        GFX3DMeshInfo* m_pMeshInfo; //reference only
         GFXShaderProgram* m_pShader;
 
     public:
-        GFX3DMesh( OBJMESH* pObjMesh, GFXShaderProgram* pShader );
+        GFX3DMesh( GFX3DMeshInfo* pMeshInfo, GFXShaderProgram* pShader );
         virtual ~GFX3DMesh();
 
         void Create();
+        virtual void Render() override;
+
         GFXShaderProgram* GetShaderProgram() { return m_pShader; }
 
     };

@@ -1,33 +1,20 @@
 //
-//  RTOwn.h
+//  Owner.h
 //  gfxe-test
 //
 //  Created by YOSHIDA MASAHIRO on 13/04/08.
 //  Copyright (c) 2013年 ROm. All rights reserved.
 //
 
-#ifndef __ragtime_RTOwn__
-#define __ragtime_RTOwn__
+#ifndef __ragtime_Owner__
+#define __ragtime_Owner__
 
 #include <functional>
 
 namespace ragtime
 {
     template <class T>
-    class PredNormalDelete {
-    public:
-        void operator()( T* obj ) { delete obj; }
-    };
-
-    template <class T>
-    class PredArrayDelete {
-    public:
-        void operator()( T* obj) { delete [] obj; }
-    };
-
-
-    template <class T>
-    class RTOwn
+    class Owner
     {
     private:
 
@@ -35,18 +22,18 @@ namespace ragtime
         std::function< void ( T* ) > m_fncDeleter;
 
         // prevent copy
-        RTOwn<T> operator=( RTOwn<T>& obj ) {}
-        RTOwn( RTOwn<T>& obj ) {}
+        Owner<T> operator=( Owner<T>& obj ) {}
+        Owner( Owner<T>& obj ) {}
 
     public:
         static const std::function< void( T* ) > normalDeleter;
         static const std::function< void( T* ) > arrayDeleter;
 
-        RTOwn() : m_pObj(nullptr), m_fncDeleter( RTOwn<T>::normalDeleter ) {
+        Owner() : m_pObj(nullptr), m_fncDeleter( Owner<T>::normalDeleter ) {
         }
-        RTOwn( T* obj, std::function< void( T* ) > fncDeleter = RTOwn<T>::normalDeleter ) : m_pObj(obj), m_fncDeleter( fncDeleter ) {
+        Owner( T* obj, std::function< void( T* ) > fncDeleter = Owner<T>::normalDeleter ) : m_pObj(obj), m_fncDeleter( fncDeleter ) {
         }
-        ~RTOwn() {
+        ~Owner() {
             m_fncDeleter( m_pObj );
         }
         void SetPointer( T* obj, std::function< void( T* ) > fncDeleter ) {
@@ -62,14 +49,14 @@ namespace ragtime
     };
 
     template<class T>
-    using own = RTOwn<T>;
+    using own = Owner<T>;
 
     template <class T>
-    const std::function< void( T* ) > RTOwn<T>::normalDeleter = []( T* obj ) {
+    const std::function< void( T* ) > Owner<T>::normalDeleter = []( T* obj ) {
         delete obj;
     };
     template <class T>
-    const std::function< void( T* ) > RTOwn<T>::arrayDeleter = []( T* obj ) {
+    const std::function< void( T* ) > Owner<T>::arrayDeleter = []( T* obj ) {
         delete [] obj;
     };
 
