@@ -6,7 +6,7 @@
     <uses-sdk android:targetSdkVersion="14" android:minSdkVersion="14"></uses-sdk>
 
 
-    <application android:icon="@drawable/icon" android:label="gfxe-test" android:debuggable="false">
+    <application android:icon="@drawable/icon" android:label="gfxe-test" android:debuggable="true">
         <activity android:name="com.android.gfxApp.gfxApp"
                   android:label="gfxe-test" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:launchMode="singleTask" android:configChanges="orientation|keyboardHidden" android:screenOrientation="portrait">
             <intent-filter>

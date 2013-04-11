@@ -33,6 +33,7 @@ void GFX3DMesh::Render()
     glBindVertexArrayOES( m_pMeshInfo->vao );
     PROGRAM_draw( m_pShader->GetProgram()) ;
 
-    glDrawElements(GL_TRIANGLES, m_pMeshInfo->objtrianglelist[0].n_indice_array, GL_UNSIGNED_SHORT, NULL);
+    for( int i = 0; i < m_pMeshInfo->n_objtrianglelist; ++i )
+        glDrawElements(GL_TRIANGLES, m_pMeshInfo->objtrianglelist[i].n_indice_array, GL_UNSIGNED_SHORT, NULL);
 
 }

@@ -31,8 +31,9 @@ as being the original software.
 #include "GFXShaderManager.h"
 #include "GFXRenderManager.h"
 #include "Owner.h"
+#include <iostream>
 
-#define OBJ_FILE (char*)"model.obj"
+#define OBJ_FILE (char*)"PC_00.obj"
 #define VERTEX_SHADER (char*)"vertex.glsl"
 #define FRAGMENT_SHADER (char*)"fragment.glsl"
 #define DEBUG_SHADERS 1
@@ -40,6 +41,7 @@ as being the original software.
 //OBJ* obj = NULL;
 //OBJMESH* objmesh = NULL;
 //PROGRAM* program = NULL;
+using namespace std;
 using namespace gfxe;
 using namespace ragtime;
 
@@ -85,6 +87,7 @@ void gfxAppInit( int width, int height )
     GFX_set_perspective(45, (float)width/(float)height, 0.1f, 100.0f, 0.0f);
 
     GFXShaderManager::Create();
+
     GFXRenderManager::CreateInstance();
 
     pModel = new GFX3DModel();
@@ -101,7 +104,7 @@ void gfxAppDraw( void )
 	/* Insert your drawing code here */
     GFX_set_matrix_mode( MODELVIEW_MATRIX );
     GFX_load_identity();
-    vec3 e = {0, -4, 0 };
+    vec3 e = {0, -20, 10 };
     vec3 c = {0, 0, 0 };
     vec3 u = {0, 0, 1 };
     GFX_look_at(&e, &c, &u);

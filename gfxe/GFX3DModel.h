@@ -12,7 +12,6 @@
 #include "gfxe.h"
 #include "GFXShaderProgram.h"
 #include "GFX3DMesh.h"
-#include "Owner.h"
 #include <vector>
 
 namespace gfxe
@@ -20,8 +19,12 @@ namespace gfxe
     class GFX3DModel
     {
     private:
-        ragtime::own<GFX3DModelInfo> m_ownModelInfo;
-        std::vector< ragtime::own<GFX3DMesh> > m_vecMesh;
+        struct GFX3DModelInfoDeleter
+        {
+            void operator()( GFX3DModelInfo* info ) { OBJ_free( info ); }
+        };
+        std::unique_ptr<GFX3DModelInfo, GFX3DModelInfoDeleter > m_unqModelInfo;
+        std::vector< std::unique_ptr<GFX3DMesh> > m_vecMesh;
 
     public:
         GFX3DModel();

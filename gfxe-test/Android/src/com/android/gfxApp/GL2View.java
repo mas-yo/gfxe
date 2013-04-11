@@ -204,6 +204,7 @@ class GL2View extends GLSurfaceView implements SurfaceHolder.Callback
         		this.width  = width;
         		this.height = height;
         		
+        		System.out.println( "call init");
          		Init( width, height, apkFilePath );
 	        	init_once = 1;
         	}

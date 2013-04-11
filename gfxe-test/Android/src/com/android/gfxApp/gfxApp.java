@@ -34,6 +34,7 @@ public class gfxApp extends Activity implements SensorEventListener
 		*/
         
         setContentView( mView );
+        
     }   
     
     @Override protected void onResume()

@@ -11,10 +11,11 @@
 
 #include "gfx.h"
 
-//namespace gfxe {
+namespace gfxe {
 
-    void create_vbo( OBJ* obj, int meshIdx );
-    void create_vao( OBJMESH* obj, PROGRAM* program );
-//}
+    void create_vbo( OBJ* obj );
+    void create_vao( OBJMESH* objmesh, PROGRAM* program );
+
+}
 
 #endif /* defined(__gfxe_test__glutil__) */

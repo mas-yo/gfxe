@@ -27,7 +27,7 @@
 							</builder>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.1344588127" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
 							<tool id="com.android.tool.compiler.g++.1352745820" name="Android G++" superClass="com.android.tool.compiler.g++">
-								<option id="gnu.cpp.compiler.option.include.paths.856010247" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath"/>
+								<option id="gnu.cpp.compiler.option.include.paths.856010247" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths"/>
 								<inputType id="com.android.tool.compiler.g++.input.234241863" superClass="com.android.tool.compiler.g++.input"/>
 							</tool>
 							<tool id="com.android.tool.compiler.c.524201446" name="Android GCC" superClass="com.android.tool.compiler.c">

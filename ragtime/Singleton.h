@@ -17,8 +17,6 @@ namespace ragtime {
     private:
         static T* s_instance;
     public:
-        Singleton() { s_instance = nullptr; }
-        virtual ~Singleton() {}
 
         static void CreateInstance() {
             delete s_instance;

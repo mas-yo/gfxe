@@ -14,8 +14,11 @@ GFXShaderSimple* GFXShaderManager::s_shaderSimple;
 
 void GFXShaderManager::Create()
 {
+	printlog("create shader manager" );
+
     s_shaderSimple = new GFXShaderSimple();
     s_shaderSimple->Create();
+	printlog( "create shader manager end" );
 }
 
 void GFXShaderManager::Clean()

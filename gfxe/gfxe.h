@@ -20,5 +20,26 @@ typedef OBJMESH     GFX3DMeshInfo;
 typedef PROGRAM     GFXShaderProgramInfo;
 typedef SHADER      GFXShaderInfo;
 
+#ifdef __IPHONE_4_0
+
+inline void printlog( const char* format, ... )
+{
+	va_list args;
+	va_start( args, format );
+	printf( format, args );
+	va_end( args );
+}
+
+#else
+
+inline void printlog(const char *format, ...)
+{
+	va_list args;
+	va_start( args, format );
+    __android_log_print( ANDROID_LOG_INFO, "", format, args );
+	va_end( args );
+}
+
+#endif
 
 #endif

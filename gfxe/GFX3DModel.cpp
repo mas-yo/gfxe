@@ -14,9 +14,8 @@
 #include "GFXShaderManager.h"
 
 using namespace gfxe;
-using namespace ragtime;
 
-GFX3DModel::GFX3DModel() : m_ownModelInfo()
+GFX3DModel::GFX3DModel() : m_unqModelInfo()
 {
     
 }
@@ -29,7 +28,7 @@ void GFX3DModel::Create( const char *fileName )
 {
     GFX3DModelInfo* pObj = OBJ_load((char*)fileName, 1);
 
-    create_vbo( pObj, 0 );
+    create_vbo( pObj );
 
     for( int i = 0; i < pObj->n_objmesh; ++i ) {
 
@@ -37,8 +36,8 @@ void GFX3DModel::Create( const char *fileName )
         pMesh->Create();
 
         m_vecMesh.resize( m_vecMesh.size() + 1 );
-        m_vecMesh[ m_vecMesh.size() - 1 ].SetPointer( pMesh, own<GFX3DMesh>::normalDeleter );
+        m_vecMesh[ m_vecMesh.size() - 1 ].reset( pMesh );
     }
 
-    m_ownModelInfo.SetPointer( pObj, []( GFX3DModelInfo* obj ) { OBJ_free( obj ); }  );
+    m_unqModelInfo.reset( pObj );
 }
