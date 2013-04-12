@@ -104,7 +104,7 @@ void gfxAppDraw( void )
 	/* Insert your drawing code here */
     GFX_set_matrix_mode( MODELVIEW_MATRIX );
     GFX_load_identity();
-    vec3 e = {0, -20, 10 };
+    vec3 e = {0, 40, 40 };
     vec3 c = {0, 0, 0 };
     vec3 u = {0, 0, 1 };
     GFX_look_at(&e, &c, &u);

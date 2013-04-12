@@ -17,24 +17,44 @@ GFXShaderSimple::GFXShaderSimple()
 
 void GFXShaderSimple::s_DrawCallBack( void *ptr )
 {
-    PROGRAM *curr_program = (PROGRAM*)ptr;
+	PROGRAM *curr_program = ( PROGRAM * )ptr;
 
 	unsigned int i = 0;
 
 	while( i != curr_program->uniform_count ) {
 
-		if( !strcmp( curr_program->uniform_array[ i ].name, "MODELVIEWPROJECTIONMATRIX" ) ) {
+		if( !strcmp( curr_program->uniform_array[ i ].name, "MODELVIEWMATRIX" ) ) {
 
 			glUniformMatrix4fv( curr_program->uniform_array[ i ].location,
                                1,
                                GL_FALSE,
-                               ( float * )GFX_get_modelview_projection_matrix() );
-		}
+                               ( float * )GFX_get_modelview_matrix() ); }
+
+		else if( !strcmp( curr_program->uniform_array[ i ].name, "PROJECTIONMATRIX" ) ) {
+
+			glUniformMatrix4fv( curr_program->uniform_array[ i ].location,
+                               1,
+                               GL_FALSE,
+                               ( float * )GFX_get_projection_matrix() ); }
+
+		else if( !strcmp( curr_program->uniform_array[ i ].name, "NORMALMATRIX" ) ) {
+
+			glUniformMatrix3fv( curr_program->uniform_array[ i ].location,
+                               1,
+                               GL_FALSE,
+                               ( float * )GFX_get_normal_matrix() ); }
         
+		else if( !strcmp( curr_program->uniform_array[ i ].name, "LIGHTPOSITION" ) ) {
+            
+			// In eye space, far is Z
+			vec3 l = { 0.0f, 0.0f, 0.0f };
+            
+			glUniform3fv( curr_program->uniform_array[ i ].location,
+                         1,
+                         ( float * )&l ); }
         
 		++i;
 	}
-
 }
 
 void GFXShaderSimple::Create()
