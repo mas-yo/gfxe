@@ -19,6 +19,7 @@ typedef OBJ         GFX3DModelInfo;
 typedef OBJMESH     GFX3DMeshInfo;
 typedef PROGRAM     GFXShaderProgramInfo;
 typedef SHADER      GFXShaderInfo;
+typedef TEXTURE     GFXTexture;
 
 #ifdef __IPHONE_4_0
 

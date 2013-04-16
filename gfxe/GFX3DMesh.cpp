@@ -21,6 +21,7 @@ GFX3DMesh::GFX3DMesh( OBJMESH* pMeshInfo ) : m_pMeshInfo( pMeshInfo ), m_unqShad
 
 GFX3DMesh::~GFX3DMesh()
 {
+    GFXRenderManager::Instance()->RemoveRenderable( this );
 }
 
 void GFX3DMesh::Create()
