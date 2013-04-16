@@ -16,10 +16,7 @@ namespace gfxe {
     class GFXShaderSimple : public GFXShaderProgram
     {
     private:
-//        static GFXShaderProgram* s_pThis;
-        static void s_DrawCallBack( void* );
-
-//        virtual void DrawCallBack();
+        virtual void SetUniformVariable() override;
 
     public:
         GFXShaderSimple();

@@ -14,18 +14,5 @@
          startingLineNumber = "75"
          endingLineNumber = "75">
       </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../../gfxe/glutil.cpp"
-         timestampString = "387352131.792561"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "80"
-         endingLineNumber = "80"
-         landmarkName = "gfxe::create_vao( OBJMESH* objmesh, PROGRAM* program)"
-         landmarkType = "5">
-      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

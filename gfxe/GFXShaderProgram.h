@@ -19,14 +19,20 @@ namespace gfxe {
     class GFXShaderProgram
     {
     protected:
+        struct GFXShaderProgramDeleter
+        {
+            void operator()( GFXShaderProgramInfo* info ) { PROGRAM_free( info ); }
+        };
+
 //        ragtime::own<GFXShaderProgramInfo> m_ownShaderProgramInfo;
-        std::unique_ptr<GFXShaderProgramInfo> m_unqShaderProgramInfo;
+        std::unique_ptr<GFXShaderProgramInfo, GFXShaderProgramDeleter> m_unqShaderProgramInfo;
 
     public:
         GFXShaderProgram();
         virtual ~GFXShaderProgram();
 
-        virtual void Create( const char* shaderName, const char* vertexShaderFileName, const char* fragmentShaderFileName, PROGRAMDRAWCALLBACK *drawCallBack );
+        virtual void Create( const char* shaderName, const char* vertexShaderFileName, const char* fragmentShaderFileName );
+        virtual void SetUniformVariable() = 0;
 
         GFXShaderProgramInfo* GetProgram() { return m_unqShaderProgramInfo.get(); }
     };

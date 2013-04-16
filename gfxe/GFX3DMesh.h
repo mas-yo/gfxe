@@ -15,20 +15,22 @@
 
 namespace gfxe {
 
+    // meshごとにshaderのインスタンスを持ち、shaderに対して見るべき変数の
+    // アドレスを渡しておく
     class GFX3DMesh : public IRenderable
     {
     private:
         GFX3DMeshInfo* m_pMeshInfo; //reference only
-        GFXShaderProgram* m_pShader;
+        std::unique_ptr<GFXShaderProgram> m_unqShader;
 
     public:
-        GFX3DMesh( GFX3DMeshInfo* pMeshInfo, GFXShaderProgram* pShader );
+        GFX3DMesh( GFX3DMeshInfo* pMeshInfo );
         virtual ~GFX3DMesh();
 
         void Create();
         virtual void Render() override;
 
-        GFXShaderProgram* GetShaderProgram() { return m_pShader; }
+        GFXShaderProgram* GetShaderProgram() { return m_unqShader.get(); }
 
     };
 }

@@ -51,7 +51,7 @@ void main( void ) {
 
 	lowp float ndotl = max( dot( normal, lightdirection ), 0.0 );
 
-	lightcolor = ndotl * vec3( 0.0 );
+	lightcolor = ndotl * vec3( 1.0 );
 
 	gl_Position = PROJECTIONMATRIX * vec4( position, 1.0 );
 }

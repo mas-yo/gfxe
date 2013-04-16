@@ -11,7 +11,6 @@
 #include "glutil.h"
 #include "GFXShaderSimple.h"
 #include "stlutil.h"
-#include "GFXShaderManager.h"
 
 using namespace gfxe;
 
@@ -32,7 +31,7 @@ void GFX3DModel::Create( const char *fileName )
 
     for( int i = 0; i < pObj->n_objmesh; ++i ) {
 
-        GFX3DMesh* pMesh = new GFX3DMesh( &pObj->objmesh[i], GFXShaderManager::s_shaderSimple );
+        GFX3DMesh* pMesh = new GFX3DMesh( &pObj->objmesh[i] );
         pMesh->Create();
 
         m_vecMesh.resize( m_vecMesh.size() + 1 );

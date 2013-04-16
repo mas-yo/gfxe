@@ -12,12 +12,12 @@ using namespace gfxe;
 
 GFXShaderSimple::GFXShaderSimple()
 {
-//    s_pThis = this;
 }
 
-void GFXShaderSimple::s_DrawCallBack( void *ptr )
+void GFXShaderSimple::SetUniformVariable()
 {
-	PROGRAM *curr_program = ( PROGRAM * )ptr;
+	PROGRAM *curr_program = m_unqShaderProgramInfo.get();
+	glUseProgram( curr_program->pid );
 
 	unsigned int i = 0;
 
@@ -43,12 +43,12 @@ void GFXShaderSimple::s_DrawCallBack( void *ptr )
                                1,
                                GL_FALSE,
                                ( float * )GFX_get_normal_matrix() ); }
-        
+
 		else if( !strcmp( curr_program->uniform_array[ i ].name, "LIGHTPOSITION" ) ) {
-            
+
 			// In eye space, far is Z
 			vec3 l = { 0.0f, 0.0f, 0.0f };
-            
+
 			glUniform3fv( curr_program->uniform_array[ i ].location,
                          1,
                          ( float * )&l ); }
@@ -59,5 +59,5 @@ void GFXShaderSimple::s_DrawCallBack( void *ptr )
 
 void GFXShaderSimple::Create()
 {
-    GFXShaderProgram::Create("default", "vertex.glsl", "fragment.glsl", GFXShaderSimple::s_DrawCallBack );
+    GFXShaderProgram::Create("default", "vertex.glsl", "fragment.glsl" );
 }

@@ -22,7 +22,6 @@
 		DA5B80AC170EDE6E0040A075 /* GFXShaderSimple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80AA170EDE6E0040A075 /* GFXShaderSimple.cpp */; };
 		DA5B80AF170EEF500040A075 /* stlutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80AD170EEF4F0040A075 /* stlutil.cpp */; };
 		DA5B80B1170EF4EC0040A075 /* model.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA5B80B0170EF4EC0040A075 /* model.obj */; };
-		DA5B80B4170EFA160040A075 /* GFXShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80B2170EFA160040A075 /* GFXShaderManager.cpp */; };
 		DA6F94261713D38D0041F057 /* GFXRenderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA6F94241713D38D0041F057 /* GFXRenderManager.cpp */; };
 		DA6F94291713D9A00041F057 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA6F94271713D9A00041F057 /* Singleton.cpp */; };
 		DAB02E6717126F9D0019510D /* Owner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAB02E6517126F9D0019510D /* Owner.cpp */; };
@@ -280,8 +279,6 @@
 		DA5B80AD170EEF4F0040A075 /* stlutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stlutil.cpp; sourceTree = "<group>"; };
 		DA5B80AE170EEF4F0040A075 /* stlutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stlutil.h; sourceTree = "<group>"; };
 		DA5B80B0170EF4EC0040A075 /* model.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = model.obj; path = ../model.obj; sourceTree = "<group>"; };
-		DA5B80B2170EFA160040A075 /* GFXShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXShaderManager.cpp; sourceTree = "<group>"; };
-		DA5B80B3170EFA160040A075 /* GFXShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXShaderManager.h; sourceTree = "<group>"; };
 		DA6F94221713A75C0041F057 /* gfxe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gfxe.h; sourceTree = "<group>"; };
 		DA6F94231713C7050041F057 /* IRenderable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRenderable.h; sourceTree = "<group>"; };
 		DA6F94241713D38D0041F057 /* GFXRenderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXRenderManager.cpp; sourceTree = "<group>"; };
@@ -910,8 +907,6 @@
 				DA5B80A8170ED6B60040A075 /* GFXShaderProgram.h */,
 				DA5B80AA170EDE6E0040A075 /* GFXShaderSimple.cpp */,
 				DA5B80AB170EDE6E0040A075 /* GFXShaderSimple.h */,
-				DA5B80B2170EFA160040A075 /* GFXShaderManager.cpp */,
-				DA5B80B3170EFA160040A075 /* GFXShaderManager.h */,
 				DA6F94241713D38D0041F057 /* GFXRenderManager.cpp */,
 				DA6F94251713D38D0041F057 /* GFXRenderManager.h */,
 			);
@@ -1792,7 +1787,6 @@
 				DA5B80A9170ED6B60040A075 /* GFXShaderProgram.cpp in Sources */,
 				DA5B80AC170EDE6E0040A075 /* GFXShaderSimple.cpp in Sources */,
 				DA5B80AF170EEF500040A075 /* stlutil.cpp in Sources */,
-				DA5B80B4170EFA160040A075 /* GFXShaderManager.cpp in Sources */,
 				DAB02E6717126F9D0019510D /* Owner.cpp in Sources */,
 				DA6F94261713D38D0041F057 /* GFXRenderManager.cpp in Sources */,
 				DA6F94291713D9A00041F057 /* Singleton.cpp in Sources */,

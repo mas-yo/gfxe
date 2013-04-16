@@ -28,7 +28,6 @@ as being the original software.
 #include "gfxApp.h"
 
 #include "GFX3DModel.h"
-#include "GFXShaderManager.h"
 #include "GFXRenderManager.h"
 #include "Owner.h"
 #include <iostream>
@@ -86,8 +85,6 @@ void gfxAppInit( int width, int height )
     GFX_load_identity();
     GFX_set_perspective(45, (float)width/(float)height, 0.1f, 100.0f, 0.0f);
 
-    GFXShaderManager::Create();
-
     GFXRenderManager::CreateInstance();
 
     pModel = new GFX3DModel();
@@ -140,5 +137,4 @@ void gfxAppExit( void )
 {
 	/* Code to run when the application exit, perfect location to free everything. */
     delete pModel;
-    GFXShaderManager::Clean();
 }

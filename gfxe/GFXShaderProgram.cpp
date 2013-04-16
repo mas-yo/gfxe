@@ -25,7 +25,7 @@ GFXShaderProgram::~GFXShaderProgram()
 {
 }
 
-void GFXShaderProgram::Create( const char* shaderName, const char* vertexShaderFileName, const char* fragmentShaderFileName, PROGRAMDRAWCALLBACK *drawCallBack )
+void GFXShaderProgram::Create( const char* shaderName, const char* vertexShaderFileName, const char* fragmentShaderFileName )
 {
     GFXShaderProgramInfo* pInfo = PROGRAM_create( (char*)shaderName,
                              (char*)vertexShaderFileName,
@@ -33,7 +33,7 @@ void GFXShaderProgram::Create( const char* shaderName, const char* vertexShaderF
                              1,
                                 SHADER_DEBUG,
                              NULL,
-                                drawCallBack );
+                                NULL );
 
     m_unqShaderProgramInfo.reset( pInfo );
 //    , []( GFXShaderProgramInfo* obj ) {
