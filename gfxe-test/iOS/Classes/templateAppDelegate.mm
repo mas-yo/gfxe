@@ -18,6 +18,8 @@
 	// Startup the accelerometer
     //[[UIAccelerometer sharedAccelerometer] setDelegate:self];	
 
+    int* p = NULL;
+    delete p;
 
     self.window.rootViewController = self.viewController;
     return YES;

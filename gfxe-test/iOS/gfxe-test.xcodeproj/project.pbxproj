@@ -14,6 +14,7 @@
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		DA1EED4A17167BD20038A561 /* PC_00.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA1EED4917167BD20038A561 /* PC_00.obj */; };
+		DA2900C11721336700F85924 /* GFXResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA2900BF1721336700F85924 /* GFXResourceManager.cpp */; };
 		DA5B8098170EAC4C0040A075 /* gfxApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B8096170EAC4C0040A075 /* gfxApp.cpp */; };
 		DA5B80A0170EC1850040A075 /* GFX3DModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B809E170EC1850040A075 /* GFX3DModel.cpp */; };
 		DA5B80A3170ECADC0040A075 /* GFX3DMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80A1170ECADC0040A075 /* GFX3DMesh.cpp */; };
@@ -25,6 +26,7 @@
 		DA6F94261713D38D0041F057 /* GFXRenderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA6F94241713D38D0041F057 /* GFXRenderManager.cpp */; };
 		DA6F94291713D9A00041F057 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA6F94271713D9A00041F057 /* Singleton.cpp */; };
 		DAB02E6717126F9D0019510D /* Owner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAB02E6517126F9D0019510D /* Owner.cpp */; };
+		DAF6361C171E5EAE001D21A0 /* GFXTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAF6361A171E5EAE001D21A0 /* GFXTextureManager.cpp */; };
 		E002BCF5135BEC0A00FCFC0B /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */; };
 		E002BCF6135BEC0A00FCFC0B /* templateAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF2135BEC0A00FCFC0B /* templateAppDelegate.mm */; };
 		E002BCF7135BEC0A00FCFC0B /* templateViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF4135BEC0A00FCFC0B /* templateViewController.mm */; };
@@ -264,6 +266,8 @@
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		DA1EED4917167BD20038A561 /* PC_00.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PC_00.obj; path = ../PC_00.obj; sourceTree = "<group>"; };
+		DA2900BF1721336700F85924 /* GFXResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXResourceManager.cpp; sourceTree = "<group>"; };
+		DA2900C01721336700F85924 /* GFXResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXResourceManager.h; sourceTree = "<group>"; };
 		DA5B8096170EAC4C0040A075 /* gfxApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gfxApp.cpp; path = ../gfxApp.cpp; sourceTree = "<group>"; };
 		DA5B8097170EAC4C0040A075 /* gfxApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gfxApp.h; path = ../gfxApp.h; sourceTree = "<group>"; };
 		DA5B809E170EC1850040A075 /* GFX3DModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFX3DModel.cpp; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 		DA6F94281713D9A00041F057 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		DAB02E6517126F9D0019510D /* Owner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Owner.cpp; sourceTree = "<group>"; };
 		DAB02E6617126F9D0019510D /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
+		DAF6361A171E5EAE001D21A0 /* GFXTextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXTextureManager.cpp; sourceTree = "<group>"; };
+		DAF6361B171E5EAE001D21A0 /* GFXTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXTextureManager.h; sourceTree = "<group>"; };
 		E002BCEF135BEC0A00FCFC0B /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		E002BCF1135BEC0A00FCFC0B /* templateAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = templateAppDelegate.h; sourceTree = "<group>"; };
@@ -909,6 +915,10 @@
 				DA5B80AB170EDE6E0040A075 /* GFXShaderSimple.h */,
 				DA6F94241713D38D0041F057 /* GFXRenderManager.cpp */,
 				DA6F94251713D38D0041F057 /* GFXRenderManager.h */,
+				DAF6361A171E5EAE001D21A0 /* GFXTextureManager.cpp */,
+				DAF6361B171E5EAE001D21A0 /* GFXTextureManager.h */,
+				DA2900BF1721336700F85924 /* GFXResourceManager.cpp */,
+				DA2900C01721336700F85924 /* GFXResourceManager.h */,
 			);
 			name = gfxe;
 			path = ../../gfxe;
@@ -1790,6 +1800,8 @@
 				DAB02E6717126F9D0019510D /* Owner.cpp in Sources */,
 				DA6F94261713D38D0041F057 /* GFXRenderManager.cpp in Sources */,
 				DA6F94291713D9A00041F057 /* Singleton.cpp in Sources */,
+				DAF6361C171E5EAE001D21A0 /* GFXTextureManager.cpp in Sources */,
+				DA2900C11721336700F85924 /* GFXResourceManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
