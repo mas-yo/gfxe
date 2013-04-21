@@ -1,2 +1,0 @@
-set solib-search-path ./obj/local/armeabi
-directory C:/Users/yoshi/Documents/software/android-ndk-r8e/platforms/android-14/arch-arm/usr/include jni/../../../gfx/openal/ jni/../../../gfxe/ jni/../../../ragtime/ C:/Users/yoshi/Documents/software/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/include C:/Users/yoshi/Documents/software/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.7/libs/armeabi/include
