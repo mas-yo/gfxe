@@ -1,3 +1,5 @@
 .DS_Store
-gfxe-test/Android/obj
+gfxe-test/Android/obj/
+gfxe-test/Android/bin/
+
 
