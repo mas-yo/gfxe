@@ -19,11 +19,7 @@ namespace gfxe
     class GFX3DModel
     {
     private:
-        struct GFX3DModelInfoDeleter
-        {
-            void operator()( GFX3DModelInfo* info ) { OBJ_free( info ); }
-        };
-        std::unique_ptr<GFX3DModelInfo, GFX3DModelInfoDeleter > m_unqModelInfo;
+        std::shared_ptr<GFX3DModelInfo > m_shrModelInfo;
         std::vector< std::unique_ptr<GFX3DMesh> > m_vecMesh;
 
     public:

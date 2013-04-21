@@ -10,11 +10,12 @@
 #include "gfxe.h"
 #include "glutil.h"
 #include "GFXShaderSimple.h"
+#include "GFXResourceManager.h"
 #include "stlutil.h"
 
 using namespace gfxe;
 
-GFX3DModel::GFX3DModel() : m_unqModelInfo()
+GFX3DModel::GFX3DModel()
 {
     
 }
@@ -25,18 +26,16 @@ GFX3DModel::~GFX3DModel()
 
 void GFX3DModel::Create( const char *fileName )
 {
-    GFX3DModelInfo* pObj = OBJ_load((char*)fileName, 1);
+    bool result = GFXResourceManager<GFX3DModelInfo>::Instance()->Load( fileName, m_shrModelInfo );
+    if( !result ) return;
 
-    create_vbo( pObj );
+    for( int i = 0; i < m_shrModelInfo->n_objmesh; ++i ) {
 
-    for( int i = 0; i < pObj->n_objmesh; ++i ) {
-
-        GFX3DMesh* pMesh = new GFX3DMesh( &pObj->objmesh[i] );
+        GFX3DMesh* pMesh = new GFX3DMesh( &m_shrModelInfo->objmesh[i] );
         pMesh->Create();
 
         m_vecMesh.resize( m_vecMesh.size() + 1 );
         m_vecMesh[ m_vecMesh.size() - 1 ].reset( pMesh );
     }
 
-    m_unqModelInfo.reset( pObj );
 }

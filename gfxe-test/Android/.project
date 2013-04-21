@@ -102,17 +102,17 @@
 		<link>
 			<name>jni/gfx</name>
 			<type>2</type>
-			<locationURI>copy_PARENT/gfx</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/gfx</locationURI>
 		</link>
 		<link>
 			<name>jni/gfxApp.cpp</name>
 			<type>1</type>
-			<locationURI>copy_PARENT1/gfxApp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/gfxApp.cpp</locationURI>
 		</link>
 		<link>
 			<name>jni/gfxApp.h</name>
 			<type>1</type>
-			<locationURI>copy_PARENT1/gfxApp.h</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/gfxApp.h</locationURI>
 		</link>
 		<link>
 			<name>jni/gfxe</name>

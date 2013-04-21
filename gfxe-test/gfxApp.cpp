@@ -29,7 +29,7 @@ as being the original software.
 
 #include "GFX3DModel.h"
 #include "GFXRenderManager.h"
-#include "Owner.h"
+#include "GFXResourceManager.h"
 #include <iostream>
 
 #define OBJ_FILE (char*)"PC_00.obj"
@@ -86,6 +86,7 @@ void gfxAppInit( int width, int height )
     GFX_set_perspective(45, (float)width/(float)height, 0.1f, 100.0f, 0.0f);
 
     GFXRenderManager::CreateInstance();
+    GFXResourceManager<GFX3DModelInfo>::CreateInstance();
 
     pModel = new GFX3DModel();
     pModel->Create( OBJ_FILE );

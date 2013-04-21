@@ -11,6 +11,7 @@
 
 #include "Singleton.h"
 #include "gfxe.h"
+#include "glutil.h"
 #include <vector>
 #include <memory>
 #include <string>
@@ -30,15 +31,29 @@ namespace gfxe
 
         std::vector< Entry > m_vecEntry;
 
-        const std::shared_ptr<T>& FindResource( const char* fileName );
+        const Entry* FindEntry( const char* fileName )
+        {
+            for( Entry& e : m_vecEntry ) {
+                if( e.fileName == fileName ) {
+                    return &e;
+                }
+            }
+            return NULL;
+        }
 
     public:
         bool Load( const char* fileName, T* object );
-        bool Load( const char* fileName, std::shared_ptr<GFXTexture>& object )
+        bool Load( const char* fileName, std::shared_ptr<GFXTexture>& shrObj )
         {
             struct GFXTextureDeleter {
                 void operator()( GFXTexture* obj ) { TEXTURE_free(obj); }
             };
+
+            Entry* find = FindEntry( fileName );
+            if( find ) {
+                shrObj = find->shrObject;
+                return true;
+            }
 
             GFXTexture* pTexture = TEXTURE_create( (char*)fileName, (char*)fileName, 1, TEXTURE_MIPMAP, TEXTURE_FILTER_2X, 0.0f );
             if( !pTexture ) return false;
@@ -46,8 +61,37 @@ namespace gfxe
             m_vecEntry.resize( m_vecEntry.size() + 1 );
             Entry& entry = m_vecEntry[ m_vecEntry.size() - 1 ];
             entry.fileName = fileName;
-            entry.shrObject.reset( pTexture );
+            entry.shrObject.reset( pTexture, GFXTextureDeleter() );
+
+            shrObj = entry.shrObject;
+
+            return true;
+        }
+
+        bool Load( const char* fileName, std::shared_ptr<GFX3DModelInfo>& shrObj )
+        {
+            struct GFX3DModelInfoDeleter {
+                void operator()( GFX3DModelInfo* obj ) { OBJ_free( obj ); }
+            };
+
+            const Entry* find = FindEntry( fileName );
+            if( find ) {
+                shrObj = find->shrObject;
+                return true;
+            }
+
+            GFX3DModelInfo* pInfo = OBJ_load( (char*)fileName, 1 );
+            if( !pInfo ) return false;
+
+            create_vbo( pInfo );
+
+            m_vecEntry.resize( m_vecEntry.size() + 1 );
+            Entry& entry = m_vecEntry[ m_vecEntry.size() - 1 ];
+            entry.fileName = fileName;
+            entry.shrObject.reset( pInfo, GFX3DModelInfoDeleter() );
             
+            shrObj = entry.shrObject;
+
             return true;
         }
     };
