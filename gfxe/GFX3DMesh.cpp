@@ -14,32 +14,48 @@
 
 using namespace gfxe;
 
-GFX3DMesh::GFX3DMesh( OBJMESH* pMeshInfo ) : m_pMeshInfo( pMeshInfo ), m_unqShader()
+GFX3DMesh::GFX3DMesh( GFX3DModelInfo* pModelInfo, GFX3DMeshInfo* pMeshInfo, int meshIdx ) :
+        m_pModelInfo( pModelInfo ), m_pMeshInfo( pMeshInfo ), m_nMeshIndex( meshIdx )
 {
-
+    if( pMeshInfo->objtrianglelist->objmaterial->dissolve == 1.0f ) {
+        GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::RenderSolid, RenderGroup_Solid );
+    } else {
+        GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::RenderAlpha, RenderGroup_Alpha );
+    }
 }
 
 GFX3DMesh::~GFX3DMesh()
 {
-    GFXRenderManager::Instance()->RemoveRenderable( this );
 }
 
-void GFX3DMesh::Create()
+void GFX3DMesh::RenderSolid()
 {
-    GFXShaderSimple* pShader = new GFXShaderSimple();
-    pShader->Create();
-    m_unqShader.reset( pShader );
-    create_vao(m_pMeshInfo, m_unqShader->GetProgram() );
-    GFXRenderManager::Instance()->AddRenderable( this );
+    GFX_push_matrix();
+
+    GFX_translate( m_pMeshInfo->location.x,
+            m_pMeshInfo->location.y,
+            m_pMeshInfo->location.z );
+
+    OBJ_draw_mesh( m_pModelInfo, m_nMeshIndex );
+
+    GFX_pop_matrix();
 }
 
-void GFX3DMesh::Render()
+void GFX3DMesh::RenderAlpha()
 {
-    glBindVertexArrayOES( m_pMeshInfo->vao );
-//    PROGRAM_draw( m_unqShader->GetProgram());
-    m_unqShader.get()->SetUniformVariable();
+    GFX_push_matrix();
 
-    for( int i = 0; i < m_pMeshInfo->n_objtrianglelist; ++i )
-        glDrawElements(GL_TRIANGLES, m_pMeshInfo->objtrianglelist[i].n_indice_array, GL_UNSIGNED_SHORT, NULL);
+    GFX_translate( m_pMeshInfo->location.x,
+            m_pMeshInfo->location.y,
+            m_pMeshInfo->location.z );
+
+    glCullFace( GL_FRONT );
+
+    OBJ_draw_mesh( m_pModelInfo, m_nMeshIndex );
+
+    glCullFace( GL_BACK );
+    OBJ_draw_mesh( m_pModelInfo, m_nMeshIndex );
+
+    GFX_pop_matrix();
 
 }

@@ -83,8 +83,6 @@ namespace gfxe
             GFX3DModelInfo* pInfo = OBJ_load( (char*)fileName, 1 );
             if( !pInfo ) return false;
 
-            create_vbo( pInfo );
-
             m_vecEntry.resize( m_vecEntry.size() + 1 );
             Entry& entry = m_vecEntry[ m_vecEntry.size() - 1 ];
             entry.fileName = fileName;

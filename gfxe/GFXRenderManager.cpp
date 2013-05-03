@@ -7,31 +7,61 @@
 //
 
 #include "GFXRenderManager.h"
+#include "gfxe.h"
 #include <algorithm>
 
 using namespace std;
 using namespace gfxe;
 
-void GFXRenderManager::AddRenderable( IRenderable* pRenderable )
-{
-    lock_guard< std::mutex > lock( m_mutex );
+//void GFXRenderer::AddRenderable( IRenderable* pRenderable )
+//{
+//    lock_guard< std::mutex > lock( m_mutex );
+//
+//    if( std::find( m_vecRenderable.begin(), m_vecRenderable.end(), pRenderable ) == m_vecRenderable.end() ) {
+//        m_vecRenderable.push_back( pRenderable );
+//    }
+//}
 
-    if( std::find( m_vecRenderable.begin(), m_vecRenderable.end(), pRenderable ) == m_vecRenderable.end() ) {
-        m_vecRenderable.push_back( pRenderable );
+GFXRenderer::~GFXRenderer()
+{
+    for( auto it = m_vecRenderFunc.begin(); it != m_vecRenderFunc.end(); ++it ) {
+        delete *it;
     }
 }
 
-void GFXRenderManager::RemoveRenderable( IRenderable* pRenderable )
+void GFXRenderer::RemoveRenderFunc( void* pTarget )
 {
-    lock_guard< std::mutex > lock( m_mutex );
+    for( auto it = m_vecRenderFunc.begin(); it != m_vecRenderFunc.end(); ++it ) {
+        if( (*it)->GetTarget() == pTarget ) {
+            delete *it;
+            m_vecRenderFunc.erase( it );
+            break;
+        }
+    }
+}
 
-    auto it = std::find( m_vecRenderable.begin(), m_vecRenderable.end(), pRenderable );
-    if( it != m_vecRenderable.end() ) {
-        (*it) = nullptr;
+void GFXRenderer::Render()
+{
+    for( auto it = m_vecRenderFunc.begin(); it != m_vecRenderFunc.end(); ++it ) {
+        (*it)->CallFunc();
+    }
+//    for_each( m_vecRenderFunc.begin(), m_vecRenderFunc.end(), []( std::unique_ptr<GFXRenderer::RenderFuncBase> p ) { p->CallFunc(); } );
+}
+
+void GFXRenderManager::RemoveRenderFunc( void* pTarget )
+{
+    for( GFXRenderer& renderer : m_arrRenderer ) {
+        renderer.RemoveRenderFunc( pTarget );
     }
 }
 
 void GFXRenderManager::Render()
 {
-    for_each( m_vecRenderable.begin(), m_vecRenderable.end(), []( IRenderable* p ) { p->Render(); } );
+    m_arrRenderer[ RenderGroup_Solid ].Render();
+
+    glEnable( GL_BLEND );
+    glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+
+    m_arrRenderer[ RenderGroup_Alpha ].Render();
+
 }

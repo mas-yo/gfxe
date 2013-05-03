@@ -15,11 +15,12 @@
 	#include "../../../gfx/gfx.h"
 #endif
 
-typedef OBJ         GFX3DModelInfo;
-typedef OBJMESH     GFX3DMeshInfo;
-typedef PROGRAM     GFXShaderProgramInfo;
-typedef SHADER      GFXShaderInfo;
-typedef TEXTURE     GFXTexture;
+typedef OBJ             GFX3DModelInfo;
+typedef OBJMESH         GFX3DMeshInfo;
+typedef OBJTRIANGLELIST GFX3DTriangleListInfo;
+typedef PROGRAM         GFXShaderProgramInfo;
+typedef SHADER          GFXShaderInfo;
+typedef TEXTURE         GFXTexture;
 
 #ifdef __IPHONE_4_0
 
