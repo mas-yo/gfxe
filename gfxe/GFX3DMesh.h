@@ -10,7 +10,6 @@
 #define __gfxe_GFX3DMesh__
 
 #include "gfxe.h"
-#include "IRenderable.h"
 #include "GFXShaderProgram.h"
 
 namespace gfxe {

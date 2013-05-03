@@ -10,7 +10,6 @@
 #define __gfxe_GFXRenderManager__
 
 #include "Singleton.h"
-#include "IRenderable.h"
 #include <vector>
 #include <mutex>
 #include <memory>

@@ -17,6 +17,12 @@ using namespace gfxe;
 GFX3DMesh::GFX3DMesh( GFX3DModelInfo* pModelInfo, GFX3DMeshInfo* pMeshInfo, int meshIdx ) :
         m_pModelInfo( pModelInfo ), m_pMeshInfo( pMeshInfo ), m_nMeshIndex( meshIdx )
 {
+    console_print( pMeshInfo->name );
+//    if( !strcmp( pMeshInfo->name, "momo" ) ) return;
+//    if( !strcmp( pMeshInfo->name, "tree" ) ) return;
+//    if( !strcmp( pMeshInfo->name, "leaf" ) ) return;
+//    if( !strcmp( pMeshInfo->name, "backgroud" ) ) return;
+
     if( pMeshInfo->objtrianglelist->objmaterial->dissolve == 1.0f ) {
         GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::RenderSolid, RenderGroup_Solid );
     } else {

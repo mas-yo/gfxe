@@ -212,7 +212,6 @@ void GFX3DModel::Create( const char *fileName )
 
         mclose( vertex_shader );
 
-        ++i;
     }
 
 
