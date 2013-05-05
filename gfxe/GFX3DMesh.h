@@ -14,8 +14,6 @@
 
 namespace gfxe {
 
-    // meshごとにshaderのインスタンスを持ち、shaderに対して見るべき変数の
-    // アドレスを渡しておく
     class GFX3DMesh
     {
     private:

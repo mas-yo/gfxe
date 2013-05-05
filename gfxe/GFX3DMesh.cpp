@@ -23,9 +23,15 @@ GFX3DMesh::GFX3DMesh( GFX3DModelInfo* pModelInfo, GFX3DMeshInfo* pMeshInfo, int 
 //    if( !strcmp( pMeshInfo->name, "leaf" ) ) return;
 //    if( !strcmp( pMeshInfo->name, "backgroud" ) ) return;
 
+    if( pMeshInfo->objtrianglelist->objmaterial == NULL ) {
+        console_print( "no material" );
+        return;
+    }
     if( pMeshInfo->objtrianglelist->objmaterial->dissolve == 1.0f ) {
+        console_print( "solid" );
         GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::RenderSolid, RenderGroup_Solid );
     } else {
+        console_print( "alpha" );
         GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::RenderAlpha, RenderGroup_Alpha );
     }
 }
