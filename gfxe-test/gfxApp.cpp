@@ -31,6 +31,7 @@ as being the original software.
 #include "GFXRenderManager.h"
 #include "GFXCamera.h"
 #include "GFXResourceManager.h"
+#include "GFXPhysicWorld.h"
 #include <iostream>
 
 #define VERTEX_SHADER (char*)"vertex.glsl"
@@ -72,6 +73,9 @@ void gfxAppInit( int width, int height )
     GFXRenderManager::CreateInstance();
     GFXCamera::CreateInstance();
     GFXResourceManager<GFX3DModelInfo>::CreateInstance();
+    GFXPhysicWorld::CreateInstance();
+    GFXPhysicWorld::Instance()->Initialize();
+    
 
     pModel = new GFX3DModel();
     pModel->Create( "scene.obj" );
@@ -80,6 +84,7 @@ void gfxAppInit( int width, int height )
     
     GFXCamera::Instance()->SetPosition( vec3( {0,-6,1.35} ) );
     GFXCamera::Instance()->SetRotation( vec3({0,0,0}) );
+    GFXCamera::Instance()->MoveRotation( 90, 0, 0);
 //    GFXCamera::Instance()->SetTarget( vec3({0,-5,1.35}) );
 //    GFXCamera::Instance()->SetTarget( vec3({0,0,0}) );
 //    GFXCamera::Instance()->SetUp( vec3({0,0,1}) );

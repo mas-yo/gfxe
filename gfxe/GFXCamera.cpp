@@ -5,7 +5,7 @@
  *      Author: yoshi
  */
 
-#include "C:/Users/yoshi/Documents/GitHub/gfxe/gfxe/GFXCamera.h"
+#include "GFXCamera.h"
 
 namespace gfxe
 {
