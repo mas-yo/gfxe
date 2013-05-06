@@ -20,7 +20,7 @@ namespace gfxe
 {
     
     template <class T>
-    class GFXResourceManager : public ragtime::Singleton< GFXResourceManager<T> >
+    class GFXResourceManager : public Singleton< GFXResourceManager<T> >
     {
     private:
         struct Entry

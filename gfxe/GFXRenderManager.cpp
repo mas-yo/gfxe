@@ -8,6 +8,7 @@
 
 #include "GFXRenderManager.h"
 #include "gfxe.h"
+#include "GFXCamera.h"
 #include <algorithm>
 
 using namespace std;
@@ -57,6 +58,8 @@ void GFXRenderManager::RemoveRenderFunc( void* pTarget )
 
 void GFXRenderManager::Render()
 {
+    GFXCamera::Instance()->Update();
+
     m_arrRenderer[ RenderGroup_Solid ].Render();
 
     glEnable( GL_BLEND );

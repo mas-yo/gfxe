@@ -119,11 +119,6 @@
 			<type>2</type>
 			<locationURI>PARENT-2-PROJECT_LOC/gfxe</locationURI>
 		</link>
-		<link>
-			<name>jni/ragtime</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/ragtime</locationURI>
-		</link>
 	</linkedResources>
 	<variableList>
 		<variable>

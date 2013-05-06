@@ -36,226 +36,103 @@ void program_bind_attrib_location( void *ptr ) {
 
 
 
-//void material_draw_callback( void *ptr ) {
-//
-//    OBJMATERIAL *objmaterial = ( OBJMATERIAL * )ptr;
-//
-//    PROGRAM *program = objmaterial->program;
-//
-//    unsigned int i = 0;
-//
-//    while( i != program->uniform_count ) {
-//
-//        if( !strcmp( program->uniform_array[ i ].name, "DIFFUSE" ) ) {
-//
-//            glUniform1i( program->uniform_array[ i ].location, 1 );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "MODELVIEWPROJECTIONMATRIX" ) ) {
-//
-//            glUniformMatrix4fv( program->uniform_array[ i ].location,
-//                                1,
-//                                GL_FALSE,
-//                                ( float * )GFX_get_modelview_projection_matrix() );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "DISSOLVE" ) ) {
-//
-//            glUniform1f( program->uniform_array[ i ].location, objmaterial->dissolve );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "AMBIENT_COLOR" ) ) {
-//
-//            glUniform3fv( program->uniform_array[ i ].location,
-//                          1,
-//                          ( float * )&objmaterial->ambient );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "DIFFUSE_COLOR" ) ) {
-//
-//            glUniform3fv( program->uniform_array[ i ].location,
-//                          1,
-//                          ( float * )&objmaterial->diffuse );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "SPECULAR_COLOR" ) ) {
-//
-//            glUniform3fv( program->uniform_array[ i ].location,
-//                          1,
-//                          ( float * )&objmaterial->specular );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "SHININESS" ) ) {
-//
-//            glUniform1f( program->uniform_array[ i ].location,
-//                         objmaterial->specular_exponent * 0.128f );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "MODELVIEWMATRIX" ) ) {
-//
-//            glUniformMatrix4fv( program->uniform_array[ i ].location,
-//                                1,
-//                                GL_FALSE,
-//                                ( float * )GFX_get_modelview_matrix() );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "PROJECTIONMATRIX" ) ) {
-//
-//            glUniformMatrix4fv( program->uniform_array[ i ].location,
-//                                1,
-//                                GL_FALSE,
-//                                ( float * )GFX_get_projection_matrix() );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "NORMALMATRIX" ) ) {
-//
-//            glUniformMatrix3fv( program->uniform_array[ i ].location,
-//                                1,
-//                                GL_FALSE,
-//                                ( float * )GFX_get_normal_matrix() );
-//        }
-//
-//        else if( !strcmp( program->uniform_array[ i ].name, "LIGHTPOSITION" ) ) {
-//
-//            vec3 position    = { 0.0f, -3.0f, 10.0f };
-//            vec3 eyeposition = { 0.0f,  0.0f,  0.0f };
-//
-//            vec3_multiply_mat4( &eyeposition,
-//                                &position,
-//                                &gfx.modelview_matrix[ gfx.modelview_matrix_index - 1 ] );
-//
-//            glUniform3fv( program->uniform_array[ i ].location,
-//                          1,
-//                          ( float * )&eyeposition );
-//        }
-//
-//        ++i;
-//    }
-//}
+void material_draw_callback( void *ptr ) {
 
-void material_draw( void *ptr )
-{
     OBJMATERIAL *objmaterial = ( OBJMATERIAL * )ptr;
 
     PROGRAM *program = objmaterial->program;
 
-
     unsigned int i = 0;
 
-    while( i != program->uniform_count )
-    {
-        if( program->uniform_array[ i ].constant )
-        {
-            ++i;
-            continue;
+    while( i != program->uniform_count ) {
+
+        if( !strcmp( program->uniform_array[ i ].name, "DIFFUSE" ) ) {
+
+            glUniform1i( program->uniform_array[ i ].location, 1 );
         }
 
-        else if( !strcmp( program->uniform_array[ i ].name, "DIFFUSE" ) )
-        {
-            glUniform1i( program->uniform_array[ i ].location,
-                         1 );
+        else if( !strcmp( program->uniform_array[ i ].name, "MODELVIEWPROJECTIONMATRIX" ) ) {
 
-            program->uniform_array[ i ].constant = 1;
+            glUniformMatrix4fv( program->uniform_array[ i ].location,
+                                1,
+                                GL_FALSE,
+                                ( float * )GFX_get_modelview_projection_matrix() );
         }
 
-        else if( !strcmp( program->uniform_array[ i ].name, "BUMP" ) )
-        {
-            glUniform1i( program->uniform_array[ i ].location,
-                         4 );
+        else if( !strcmp( program->uniform_array[ i ].name, "DISSOLVE" ) ) {
 
-            program->uniform_array[ i ].constant = 1;
+            glUniform1f( program->uniform_array[ i ].location, objmaterial->dissolve );
         }
 
+        else if( !strcmp( program->uniform_array[ i ].name, "AMBIENT_COLOR" ) ) {
 
-        // Matrix Data
-        else if( !strcmp( program->uniform_array[ i ].name, "MODELVIEWMATRIX" ) )
-        {
+            glUniform3fv( program->uniform_array[ i ].location,
+                          1,
+                          ( float * )&objmaterial->ambient );
+        }
+
+        else if( !strcmp( program->uniform_array[ i ].name, "DIFFUSE_COLOR" ) ) {
+
+            glUniform3fv( program->uniform_array[ i ].location,
+                          1,
+                          ( float * )&objmaterial->diffuse );
+        }
+
+        else if( !strcmp( program->uniform_array[ i ].name, "SPECULAR_COLOR" ) ) {
+
+            glUniform3fv( program->uniform_array[ i ].location,
+                          1,
+                          ( float * )&objmaterial->specular );
+        }
+
+        else if( !strcmp( program->uniform_array[ i ].name, "SHININESS" ) ) {
+
+            glUniform1f( program->uniform_array[ i ].location,
+                         objmaterial->specular_exponent * 0.128f );
+        }
+
+        else if( !strcmp( program->uniform_array[ i ].name, "MODELVIEWMATRIX" ) ) {
+
             glUniformMatrix4fv( program->uniform_array[ i ].location,
                                 1,
                                 GL_FALSE,
                                 ( float * )GFX_get_modelview_matrix() );
         }
 
-        else if( !strcmp( program->uniform_array[ i ].name, "PROJECTIONMATRIX" ) )
-        {
+        else if( !strcmp( program->uniform_array[ i ].name, "PROJECTIONMATRIX" ) ) {
+
             glUniformMatrix4fv( program->uniform_array[ i ].location,
                                 1,
                                 GL_FALSE,
                                 ( float * )GFX_get_projection_matrix() );
-
-            program->uniform_array[ i ].constant = 1;
         }
 
-        else if( !strcmp( program->uniform_array[ i ].name, "NORMALMATRIX" ) )
-        {
+        else if( !strcmp( program->uniform_array[ i ].name, "NORMALMATRIX" ) ) {
+
             glUniformMatrix3fv( program->uniform_array[ i ].location,
                                 1,
                                 GL_FALSE,
                                 ( float * )GFX_get_normal_matrix() );
         }
 
+        else if( !strcmp( program->uniform_array[ i ].name, "LIGHTPOSITION" ) ) {
 
-        // Material Data
-        else if( !strcmp( program->uniform_array[ i ].name, "MATERIAL.ambient" ) )
-        {
-            glUniform4fv( program->uniform_array[ i ].location,
-                          1,
-                          ( float * )&objmaterial->ambient );
+            vec3 position    = { 0.0f, -3.0f, 10.0f };
+            vec3 eyeposition = { 0.0f,  0.0f,  0.0f };
 
-            program->uniform_array[ i ].constant = 1;
-        }
-
-        else if( !strcmp( program->uniform_array[ i ].name, "MATERIAL.diffuse" ) )
-        {
-            glUniform4fv( program->uniform_array[ i ].location,
-                          1,
-                          ( float * )&objmaterial->diffuse );
-        }
-
-        else if( !strcmp( program->uniform_array[ i ].name, "MATERIAL.specular" ) )
-        {
-            glUniform4fv( program->uniform_array[ i ].location,
-                          1,
-                          ( float * )&objmaterial->specular );
-        }
-
-        else if( !strcmp( program->uniform_array[ i ].name, "MATERIAL.shininess" ) )
-        {
-            glUniform1f( program->uniform_array[ i ].location,
-                         objmaterial->specular_exponent * 0.128f );
-
-            program->uniform_array[ i ].constant = 1;
-        }
-
-
-        // Lamp Data
-        else if( !strcmp( program->uniform_array[ i ].name, "LIGHT_FS.color" ) )
-        {
-            glUniform4fv( program->uniform_array[ i ].location,
-                          1,
-                          ( float * )&light->color );
-
-            program->uniform_array[ i ].constant = 1;
-        }
-
-        else if( !strcmp( program->uniform_array[ i ].name, "LIGHT_VS.direction" ) )
-        {
-            vec3 direction;
-
-            LIGHT_get_direction_in_eye_space( light,
-                                              &gfx.modelview_matrix[ gfx.modelview_matrix_index - 1 ],
-                                              &direction );
+            vec3_multiply_mat4( &eyeposition,
+                                &position,
+                                &gfx.modelview_matrix[ gfx.modelview_matrix_index - 1 ] );
 
             glUniform3fv( program->uniform_array[ i ].location,
                           1,
-                          ( float * )&direction );
-
-            program->uniform_array[ i ].constant = 1;
+                          ( float * )&eyeposition );
         }
 
         ++i;
     }
 }
+
 
 GFX3DModel::GFX3DModel()
 {

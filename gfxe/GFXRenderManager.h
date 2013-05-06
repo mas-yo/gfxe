@@ -70,7 +70,7 @@ namespace gfxe {
         void Render();
     };
 
-    class GFXRenderManager : public ragtime::Singleton<GFXRenderManager>
+    class GFXRenderManager : public Singleton<GFXRenderManager>
     {
     private:
         GFXRenderer m_arrRenderer[ RenderGroup_End ];

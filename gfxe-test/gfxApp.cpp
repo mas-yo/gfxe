@@ -29,43 +29,25 @@ as being the original software.
 
 #include "GFX3DModel.h"
 #include "GFXRenderManager.h"
+#include "GFXCamera.h"
 #include "GFXResourceManager.h"
 #include <iostream>
 
-#define OBJ_FILE (char*)"scene.obj"
 #define VERTEX_SHADER (char*)"vertex.glsl"
 #define FRAGMENT_SHADER (char*)"fragment.glsl"
 #define DEBUG_SHADERS 1
 
-//OBJ* obj = NULL;
-//OBJMESH* objmesh = NULL;
-//PROGRAM* program = NULL;
 using namespace std;
 using namespace gfxe;
-using namespace ragtime;
 
 GFX3DModel* pModel;
+GFX3DModel* pModel2;
 
 GFXAPP gfxApp = {
     gfxAppInit,
     gfxAppDraw,
     gfxAppToucheBegan,
     gfxAppToucheMoved
-};
-
-
-void program_draw_callback( void *ptr )
-{
-    PROGRAM* curr_program = (PROGRAM*)ptr;
-    unsigned int i = 0;
-    while( i != curr_program->uniform_count )
-    {
-        if( ! strcmp( curr_program->uniform_array[i].name, "MODELVIEWPROJECTIONMATRIX" ) ) {
-            glUniformMatrix4fv(curr_program->uniform_array[i].location, 1, GL_FALSE, (float*)GFX_get_modelview_projection_matrix() );
-
-        }
-        ++i;
-    }
 };
 
 
@@ -88,11 +70,20 @@ void gfxAppInit( int width, int height )
 						 -90.0f );
 
     GFXRenderManager::CreateInstance();
+    GFXCamera::CreateInstance();
     GFXResourceManager<GFX3DModelInfo>::CreateInstance();
 
     pModel = new GFX3DModel();
-    pModel->Create( OBJ_FILE );
-
+    pModel->Create( "scene.obj" );
+    pModel2 = new GFX3DModel();
+    pModel2->Create( "ram.obj" );
+    
+    GFXCamera::Instance()->SetPosition( vec3( {0,-6,1.35} ) );
+    GFXCamera::Instance()->SetRotation( vec3({0,0,0}) );
+//    GFXCamera::Instance()->SetTarget( vec3({0,-5,1.35}) );
+//    GFXCamera::Instance()->SetTarget( vec3({0,0,0}) );
+//    GFXCamera::Instance()->SetUp( vec3({0,0,1}) );
+    
 }
 
 
@@ -101,22 +92,27 @@ void gfxAppDraw( void )
 	glClearColor( 0.5f, 0.5f, 0.5f, 1.0f );
 	glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT );
 
-	GFX_set_matrix_mode( MODELVIEW_MATRIX );
-
-	GFX_load_identity();
-
-	vec3 e = {  0.0f, -6.0f, 1.35f }, 
-		 c = {  0.0f, -5.0f, 1.35f },
-		 u = {  0.0f,  0.0f, 1.0f  };
-	
-	GFX_look_at( &e, &c, &u );
-
     GFXRenderManager::Instance()->Render();
 }
 
 void gfxAppToucheBegan( float x, float y, unsigned int tap_count )
 {
 	/* Insert code to execute when a new touche is detected on screen. */
+	
+	float mx = 0;
+	float my = 0;
+	if( x < 300 ) mx = -10; else mx = 10;
+	if( y < 300 ) my = -0.2f; else my = 0.2f;
+	
+	GFXCamera::Instance()->MoveRotation( mx, 0, 0 );
+	
+	const vec3& pos = GFXCamera::Instance()->GetPosition();
+	const vec3& tgt = GFXCamera::Instance()->GetTarget();
+	const vec3& rot = GFXCamera::Instance()->GetRotation();
+	
+	console_print("pos:%f %f %f", pos.x, pos.y, pos.z );
+//	console_print("tgt:%f %f %f", tgt.x, tgt.y, tgt.z );
+	console_print("rot:%f %f %f", rot.x, rot.y, rot.z );
 }
 
 
@@ -142,4 +138,5 @@ void gfxAppExit( void )
 {
 	/* Code to run when the application exit, perfect location to free everything. */
     delete pModel;
+    delete pModel2;
 }
