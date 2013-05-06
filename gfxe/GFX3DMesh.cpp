@@ -58,7 +58,6 @@ void GFX3DMesh::RenderSolid()
 
     mat4 mat;
     m_pMeshInfo->btrigidbody->getWorldTransform().getOpenGLMatrix( ( float * )&mat );
-    console_print("%f,%f,%f", mat.m[3].x, mat.m[3].y, mat.m[3].z);
     GFX_multiply_matrix( &mat );
 
     OBJ_draw_mesh( m_pModelInfo, m_nMeshIndex );
@@ -75,7 +74,6 @@ void GFX3DMesh::RenderAlpha()
 //            m_pMeshInfo->location.z );
     mat4 mat;
     m_pMeshInfo->btrigidbody->getWorldTransform().getOpenGLMatrix( ( float * )&mat );
-    console_print("%f,%f,%f", mat.m[3].x, mat.m[3].y, mat.m[3].z);
     GFX_multiply_matrix( &mat );
 
     glCullFace( GL_FRONT );

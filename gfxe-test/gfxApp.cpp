@@ -98,6 +98,8 @@ void gfxAppDraw( void )
 	glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT );
 
     GFXRenderManager::Instance()->Render();
+    
+    GFXPhysicWorld::Instance()->Update();
 }
 
 void gfxAppToucheBegan( float x, float y, unsigned int tap_count )

@@ -121,5 +121,9 @@ void GFXPhysicWorld::AddRigidBody( GFX3DMeshInfo *meshInfo, float mass )
     m_pDynamicsWorld->addRigidBody( meshInfo->btrigidbody );
 }
 
+void GFXPhysicWorld::Update()
+{
+    m_pDynamicsWorld->stepSimulation( 1.0f / 60.0f );
+}
 
 } /* namespace gfxe */

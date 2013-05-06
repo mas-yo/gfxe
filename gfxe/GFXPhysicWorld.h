@@ -30,6 +30,7 @@ public:
 
     void Initialize();
     void AddRigidBody( GFX3DMeshInfo* meshInfo, float mass );
+    void Update();
 };
 
 } /* namespace gfxe */
