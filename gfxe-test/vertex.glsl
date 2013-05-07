@@ -25,6 +25,7 @@ as being the original software.
 
 */
 
+
 #ifdef LIGHTING_SHADER
 
    uniform mediump mat4 MODELVIEWMATRIX;

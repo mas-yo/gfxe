@@ -23,10 +23,23 @@
 		DA5B80AC170EDE6E0040A075 /* GFXShaderSimple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80AA170EDE6E0040A075 /* GFXShaderSimple.cpp */; };
 		DA5B80AF170EEF500040A075 /* stlutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA5B80AD170EEF4F0040A075 /* stlutil.cpp */; };
 		DA5B80B1170EF4EC0040A075 /* model.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA5B80B0170EF4EC0040A075 /* model.obj */; };
+		DA61B88F1738B01100A6D7F0 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = DA61B8841738B01100A6D7F0 /* background.png */; };
+		DA61B8901738B01100A6D7F0 /* balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA61B8851738B01100A6D7F0 /* balloon.png */; };
+		DA61B8911738B01100A6D7F0 /* char_ram_col.png in Resources */ = {isa = PBXBuildFile; fileRef = DA61B8861738B01100A6D7F0 /* char_ram_col.png */; };
+		DA61B8921738B01100A6D7F0 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = DA61B8871738B01100A6D7F0 /* grass.png */; };
+		DA61B8931738B01100A6D7F0 /* leaf.png in Resources */ = {isa = PBXBuildFile; fileRef = DA61B8881738B01100A6D7F0 /* leaf.png */; };
+		DA61B8941738B01100A6D7F0 /* momo.png in Resources */ = {isa = PBXBuildFile; fileRef = DA61B8891738B01100A6D7F0 /* momo.png */; };
+		DA61B8951738B01100A6D7F0 /* ram.mtl in Resources */ = {isa = PBXBuildFile; fileRef = DA61B88A1738B01100A6D7F0 /* ram.mtl */; };
+		DA61B8961738B01100A6D7F0 /* ram.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA61B88B1738B01100A6D7F0 /* ram.obj */; };
+		DA61B8971738B01100A6D7F0 /* scene.mtl in Resources */ = {isa = PBXBuildFile; fileRef = DA61B88C1738B01100A6D7F0 /* scene.mtl */; };
+		DA61B8981738B01100A6D7F0 /* scene.obj in Resources */ = {isa = PBXBuildFile; fileRef = DA61B88D1738B01100A6D7F0 /* scene.obj */; };
+		DA61B8991738B01100A6D7F0 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = DA61B88E1738B01100A6D7F0 /* tree.png */; };
+		DA61B8A01738B02C00A6D7F0 /* GFXCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA61B89A1738B02B00A6D7F0 /* GFXCamera.cpp */; };
+		DA61B8A11738B02C00A6D7F0 /* GFXPhysicWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA61B89C1738B02B00A6D7F0 /* GFXPhysicWorld.cpp */; };
+		DA61B8A21738B02C00A6D7F0 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA61B89E1738B02C00A6D7F0 /* Singleton.cpp */; };
 		DA6F94261713D38D0041F057 /* GFXRenderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA6F94241713D38D0041F057 /* GFXRenderManager.cpp */; };
 		DA6F94291713D9A00041F057 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA6F94271713D9A00041F057 /* Singleton.cpp */; };
 		DAB02E6717126F9D0019510D /* Owner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAB02E6517126F9D0019510D /* Owner.cpp */; };
-		DAF6361C171E5EAE001D21A0 /* GFXTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAF6361A171E5EAE001D21A0 /* GFXTextureManager.cpp */; };
 		E002BCF5135BEC0A00FCFC0B /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */; };
 		E002BCF6135BEC0A00FCFC0B /* templateAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF2135BEC0A00FCFC0B /* templateAppDelegate.mm */; };
 		E002BCF7135BEC0A00FCFC0B /* templateViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E002BCF4135BEC0A00FCFC0B /* templateViewController.mm */; };
@@ -283,16 +296,30 @@
 		DA5B80AD170EEF4F0040A075 /* stlutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stlutil.cpp; sourceTree = "<group>"; };
 		DA5B80AE170EEF4F0040A075 /* stlutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stlutil.h; sourceTree = "<group>"; };
 		DA5B80B0170EF4EC0040A075 /* model.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = model.obj; path = ../model.obj; sourceTree = "<group>"; };
+		DA61B8841738B01100A6D7F0 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../background.png; sourceTree = "<group>"; };
+		DA61B8851738B01100A6D7F0 /* balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balloon.png; path = ../balloon.png; sourceTree = "<group>"; };
+		DA61B8861738B01100A6D7F0 /* char_ram_col.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = char_ram_col.png; path = ../char_ram_col.png; sourceTree = "<group>"; };
+		DA61B8871738B01100A6D7F0 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grass.png; path = ../grass.png; sourceTree = "<group>"; };
+		DA61B8881738B01100A6D7F0 /* leaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leaf.png; path = ../leaf.png; sourceTree = "<group>"; };
+		DA61B8891738B01100A6D7F0 /* momo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = momo.png; path = ../momo.png; sourceTree = "<group>"; };
+		DA61B88A1738B01100A6D7F0 /* ram.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ram.mtl; path = ../ram.mtl; sourceTree = "<group>"; };
+		DA61B88B1738B01100A6D7F0 /* ram.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ram.obj; path = ../ram.obj; sourceTree = "<group>"; };
+		DA61B88C1738B01100A6D7F0 /* scene.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = scene.mtl; path = ../scene.mtl; sourceTree = "<group>"; };
+		DA61B88D1738B01100A6D7F0 /* scene.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = scene.obj; path = ../scene.obj; sourceTree = "<group>"; };
+		DA61B88E1738B01100A6D7F0 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tree.png; path = ../tree.png; sourceTree = "<group>"; };
+		DA61B89A1738B02B00A6D7F0 /* GFXCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXCamera.cpp; sourceTree = "<group>"; };
+		DA61B89B1738B02B00A6D7F0 /* GFXCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXCamera.h; sourceTree = "<group>"; };
+		DA61B89C1738B02B00A6D7F0 /* GFXPhysicWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXPhysicWorld.cpp; sourceTree = "<group>"; };
+		DA61B89D1738B02B00A6D7F0 /* GFXPhysicWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXPhysicWorld.h; sourceTree = "<group>"; };
+		DA61B89E1738B02C00A6D7F0 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
+		DA61B89F1738B02C00A6D7F0 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		DA6F94221713A75C0041F057 /* gfxe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gfxe.h; sourceTree = "<group>"; };
-		DA6F94231713C7050041F057 /* IRenderable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRenderable.h; sourceTree = "<group>"; };
 		DA6F94241713D38D0041F057 /* GFXRenderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXRenderManager.cpp; sourceTree = "<group>"; };
 		DA6F94251713D38D0041F057 /* GFXRenderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXRenderManager.h; sourceTree = "<group>"; };
 		DA6F94271713D9A00041F057 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
 		DA6F94281713D9A00041F057 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		DAB02E6517126F9D0019510D /* Owner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Owner.cpp; sourceTree = "<group>"; };
 		DAB02E6617126F9D0019510D /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
-		DAF6361A171E5EAE001D21A0 /* GFXTextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXTextureManager.cpp; sourceTree = "<group>"; };
-		DAF6361B171E5EAE001D21A0 /* GFXTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXTextureManager.h; sourceTree = "<group>"; };
 		E002BCEF135BEC0A00FCFC0B /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		E002BCF0135BEC0A00FCFC0B /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		E002BCF1135BEC0A00FCFC0B /* templateAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = templateAppDelegate.h; sourceTree = "<group>"; };
@@ -863,6 +890,17 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA61B8841738B01100A6D7F0 /* background.png */,
+				DA61B8851738B01100A6D7F0 /* balloon.png */,
+				DA61B8861738B01100A6D7F0 /* char_ram_col.png */,
+				DA61B8871738B01100A6D7F0 /* grass.png */,
+				DA61B8881738B01100A6D7F0 /* leaf.png */,
+				DA61B8891738B01100A6D7F0 /* momo.png */,
+				DA61B88A1738B01100A6D7F0 /* ram.mtl */,
+				DA61B88B1738B01100A6D7F0 /* ram.obj */,
+				DA61B88C1738B01100A6D7F0 /* scene.mtl */,
+				DA61B88D1738B01100A6D7F0 /* scene.obj */,
+				DA61B88E1738B01100A6D7F0 /* tree.png */,
 				DA1EED4917167BD20038A561 /* PC_00.obj */,
 				DA5B80B0170EF4EC0040A075 /* model.obj */,
 				E0CEF06013A2F800008C55D3 /* fragment.glsl */,
@@ -899,12 +937,17 @@
 		DA5B8099170EB5A30040A075 /* gfxe */ = {
 			isa = PBXGroup;
 			children = (
+				DA61B89A1738B02B00A6D7F0 /* GFXCamera.cpp */,
+				DA61B89B1738B02B00A6D7F0 /* GFXCamera.h */,
+				DA61B89C1738B02B00A6D7F0 /* GFXPhysicWorld.cpp */,
+				DA61B89D1738B02B00A6D7F0 /* GFXPhysicWorld.h */,
+				DA61B89E1738B02C00A6D7F0 /* Singleton.cpp */,
+				DA61B89F1738B02C00A6D7F0 /* Singleton.h */,
 				DA5B80AD170EEF4F0040A075 /* stlutil.cpp */,
 				DA5B80AE170EEF4F0040A075 /* stlutil.h */,
 				DA5B80A4170ECECC0040A075 /* glutil.cpp */,
 				DA5B80A5170ECECC0040A075 /* glutil.h */,
 				DA6F94221713A75C0041F057 /* gfxe.h */,
-				DA6F94231713C7050041F057 /* IRenderable.h */,
 				DA5B809E170EC1850040A075 /* GFX3DModel.cpp */,
 				DA5B809F170EC1850040A075 /* GFX3DModel.h */,
 				DA5B80A1170ECADC0040A075 /* GFX3DMesh.cpp */,
@@ -915,8 +958,6 @@
 				DA5B80AB170EDE6E0040A075 /* GFXShaderSimple.h */,
 				DA6F94241713D38D0041F057 /* GFXRenderManager.cpp */,
 				DA6F94251713D38D0041F057 /* GFXRenderManager.h */,
-				DAF6361A171E5EAE001D21A0 /* GFXTextureManager.cpp */,
-				DAF6361B171E5EAE001D21A0 /* GFXTextureManager.h */,
 				DA2900BF1721336700F85924 /* GFXResourceManager.cpp */,
 				DA2900C01721336700F85924 /* GFXResourceManager.h */,
 			);
@@ -1556,6 +1597,17 @@
 				E0CEF06313A2F800008C55D3 /* vertex.glsl in Resources */,
 				DA5B80B1170EF4EC0040A075 /* model.obj in Resources */,
 				DA1EED4A17167BD20038A561 /* PC_00.obj in Resources */,
+				DA61B88F1738B01100A6D7F0 /* background.png in Resources */,
+				DA61B8901738B01100A6D7F0 /* balloon.png in Resources */,
+				DA61B8911738B01100A6D7F0 /* char_ram_col.png in Resources */,
+				DA61B8921738B01100A6D7F0 /* grass.png in Resources */,
+				DA61B8931738B01100A6D7F0 /* leaf.png in Resources */,
+				DA61B8941738B01100A6D7F0 /* momo.png in Resources */,
+				DA61B8951738B01100A6D7F0 /* ram.mtl in Resources */,
+				DA61B8961738B01100A6D7F0 /* ram.obj in Resources */,
+				DA61B8971738B01100A6D7F0 /* scene.mtl in Resources */,
+				DA61B8981738B01100A6D7F0 /* scene.obj in Resources */,
+				DA61B8991738B01100A6D7F0 /* tree.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1800,8 +1852,10 @@
 				DAB02E6717126F9D0019510D /* Owner.cpp in Sources */,
 				DA6F94261713D38D0041F057 /* GFXRenderManager.cpp in Sources */,
 				DA6F94291713D9A00041F057 /* Singleton.cpp in Sources */,
-				DAF6361C171E5EAE001D21A0 /* GFXTextureManager.cpp in Sources */,
 				DA2900C11721336700F85924 /* GFXResourceManager.cpp in Sources */,
+				DA61B8A01738B02C00A6D7F0 /* GFXCamera.cpp in Sources */,
+				DA61B8A11738B02C00A6D7F0 /* GFXPhysicWorld.cpp in Sources */,
+				DA61B8A21738B02C00A6D7F0 /* Singleton.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
