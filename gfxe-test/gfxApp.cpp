@@ -97,6 +97,8 @@ void gfxAppDraw( void )
 	glClearColor( 0.5f, 0.5f, 0.5f, 1.0f );
 	glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT );
 
+    GFXCamera::Instance()->Update();
+
     GFXRenderManager::Instance()->Render();
     
     GFXPhysicWorld::Instance()->Update();
