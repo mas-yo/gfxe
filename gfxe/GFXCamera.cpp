@@ -11,11 +11,11 @@ namespace gfxe
 {
 
 GFXCamera::GFXCamera() :
-        m_nCameraMode( CameraMode_Rotation ),
-        m_v3Position( { 0.0f, 0.0f, 0.0f } ),
-        m_v3Rotation( { 0.0f, 0.0f, 0.0f } ),
-        m_v3Target( { 0.0f, 0.0f, 0.0f } ),
-        m_v3Up( { 0.0f, 0.0f, 0.0f } )
+        _cameraMode( CameraMode_Rotation ),
+        _position( { 0.0f, 0.0f, 0.0f } ),
+        _rotation( { 0.0f, 0.0f, 0.0f } ),
+        _targetPosition( { 0.0f, 0.0f, 0.0f } ),
+        _upPosition( { 0.0f, 0.0f, 0.0f } )
 {
     // TODO Auto-generated constructor stub
 
@@ -26,71 +26,71 @@ GFXCamera::~GFXCamera()
     // TODO Auto-generated destructor stub
 }
 
-void GFXCamera::SetPosition( const vec3& pos )
+void GFXCamera::setPosition( const vec3& pos )
 {
-    m_v3Position = pos;
+    _position = pos;
 }
 
-void GFXCamera::SetRotation( const vec3& rot )
+void GFXCamera::setRotation( const vec3& rot )
 {
-    m_nCameraMode = CameraMode_Rotation;
-    m_v3Rotation = rot;
+    _cameraMode = CameraMode_Rotation;
+    _rotation = rot;
 }
 
-void GFXCamera::SetTarget( const vec3& tgt )
+void GFXCamera::setTarget( const vec3& tgt )
 {
-    m_nCameraMode = CameraMode_Target;
-    m_v3Target = tgt;
+    _cameraMode = CameraMode_Target;
+    _targetPosition = tgt;
 }
 
-void GFXCamera::MovePosition( float dx, float dy, float dz )
+void GFXCamera::movePosition( float dx, float dy, float dz )
 {
-    m_v3Position.x += dx;
-    m_v3Position.y += dy;
-    m_v3Position.z += dz;
+    _position.x += dx;
+    _position.y += dy;
+    _position.z += dz;
 }
 
-void GFXCamera::MoveTarget( float dx, float dy, float dz )
+void GFXCamera::moveTarget( float dx, float dy, float dz )
 {
-    m_nCameraMode = CameraMode_Target;
-    m_v3Target.x += dx;
-    m_v3Target.y += dy;
-    m_v3Target.z += dz;
+    _cameraMode = CameraMode_Target;
+    _targetPosition.x += dx;
+    _targetPosition.y += dy;
+    _targetPosition.z += dz;
 }
 
-void GFXCamera::MoveRotation( float dx, float dy, float dz )
+void GFXCamera::moveRotation( float dx, float dy, float dz )
 {
-    m_nCameraMode = CameraMode_Rotation;
-    m_v3Rotation.x += dx;
-    m_v3Rotation.y += dy;
-    m_v3Rotation.z += dz;
+    _cameraMode = CameraMode_Rotation;
+    _rotation.x += dx;
+    _rotation.y += dy;
+    _rotation.z += dz;
 }
 
-void GFXCamera::SetUp( const vec3& up )
+void GFXCamera::setUp( const vec3& up )
 {
-    m_nCameraMode = CameraMode_Target;
-    m_v3Up = up;
+    _cameraMode = CameraMode_Target;
+    _upPosition = up;
 }
 
-void GFXCamera::Update()
+void GFXCamera::update()
 {
 
     GFX_set_matrix_mode( MODELVIEW_MATRIX );
     GFX_load_identity();
 
-    switch( m_nCameraMode ) {
+    switch( _cameraMode ) {
     case CameraMode_Rotation:
-        GFX_translate( m_v3Position.x, m_v3Position.y, m_v3Position.z );
-        GFX_rotate( m_v3Rotation.x, 1.0f, 0.0f, 0.0f );
-        GFX_rotate( m_v3Rotation.y, 0.0f, 1.0f, 0.0f );
-        GFX_rotate( m_v3Rotation.z, 0.0f, 0.0f, 1.0f );
+        GFX_translate( _position.x, _position.y, _position.z );
+        GFX_rotate( _rotation.x, 1.0f, 0.0f, 0.0f );
+        GFX_rotate( _rotation.y, 0.0f, 1.0f, 0.0f );
+        GFX_rotate( _rotation.z, 0.0f, 0.0f, 1.0f );
 //
 //    GFX_rotate( 90.0f, 1.0f, 0.0f, 0.0f );
         mat4_invert( GFX_get_modelview_matrix() );
         break;
 
     case CameraMode_Target:
-        GFX_look_at( &m_v3Position, &m_v3Target, &m_v3Up );
+        GFX_look_at( &_position, &_targetPosition, &_upPosition );
         break;
     }
 

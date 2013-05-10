@@ -82,9 +82,9 @@ void gfxAppInit( int width, int height )
     pModel2 = new GFX3DModel();
     pModel2->Create( "ram.obj" );
     
-    GFXCamera::Instance()->SetPosition( vec3( {0,-6,1.35} ) );
-    GFXCamera::Instance()->SetRotation( vec3({0,0,0}) );
-    GFXCamera::Instance()->MoveRotation( 90, 0, 0);
+    GFXCamera::Instance()->setPosition( vec3( {0,-6,1.35} ) );
+    GFXCamera::Instance()->setRotation( vec3({0,0,0}) );
+    GFXCamera::Instance()->moveRotation( 90, 0, 0);
 //    GFXCamera::Instance()->SetTarget( vec3({0,-5,1.35}) );
 //    GFXCamera::Instance()->SetTarget( vec3({0,0,0}) );
 //    GFXCamera::Instance()->SetUp( vec3({0,0,1}) );
@@ -97,7 +97,7 @@ void gfxAppDraw( void )
 	glClearColor( 0.5f, 0.5f, 0.5f, 1.0f );
 	glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT );
 
-    GFXCamera::Instance()->Update();
+    GFXCamera::Instance()->update();
 
     GFXRenderManager::Instance()->Render();
     
@@ -113,11 +113,11 @@ void gfxAppToucheBegan( float x, float y, unsigned int tap_count )
 	if( x < 300 ) mx = -10; else mx = 10;
 	if( y < 300 ) my = -0.2f; else my = 0.2f;
 	
-	GFXCamera::Instance()->MoveRotation( mx, 0, 0 );
+	GFXCamera::Instance()->moveRotation( mx, 0, 0 );
 	
-	const vec3& pos = GFXCamera::Instance()->GetPosition();
-	const vec3& tgt = GFXCamera::Instance()->GetTarget();
-	const vec3& rot = GFXCamera::Instance()->GetRotation();
+	const vec3& pos = GFXCamera::Instance()->getPosition();
+	const vec3& tgt = GFXCamera::Instance()->getTarget();
+	const vec3& rot = GFXCamera::Instance()->getRotation();
 	
 	console_print("pos:%f %f %f", pos.x, pos.y, pos.z );
 //	console_print("tgt:%f %f %f", tgt.x, tgt.y, tgt.z );

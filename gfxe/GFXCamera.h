@@ -22,30 +22,30 @@ enum CameraMode {
 class GFXCamera : public Singleton<GFXCamera>
 {
 private:
-    int m_nCameraMode;
-    vec3 m_v3Position;
-    vec3 m_v3Rotation;
-    vec3 m_v3Target;
-    vec3 m_v3Up;
+    int _cameraMode;
+    vec3 _position;
+    vec3 _rotation;
+    vec3 _targetPosition;
+    vec3 _upPosition;
 
 public:
     GFXCamera();
     virtual ~GFXCamera();
 
-    void SetPosition( const vec3& pos );
-    void SetRotation( const vec3& rot );
-    void SetTarget( const vec3& tgt );
-    void SetUp( const vec3& up );
+    void setPosition( const vec3& pos );
+    void setRotation( const vec3& rot );
+    void setTarget( const vec3& tgt );
+    void setUp( const vec3& up );
 
-    void MovePosition( float dx, float dy, float dz );
-    void MoveRotation( float dx, float dy, float dz );
-    void MoveTarget( float dx, float dy, float dz );
+    void movePosition( float dx, float dy, float dz );
+    void moveRotation( float dx, float dy, float dz );
+    void moveTarget( float dx, float dy, float dz );
 
-    const vec3& GetPosition() { return m_v3Position; }
-    const vec3& GetTarget() { return m_v3Target; }
-    const vec3& GetRotation() { return m_v3Rotation; }
+    const vec3& getPosition() { return _position; }
+    const vec3& getTarget() { return _targetPosition; }
+    const vec3& getRotation() { return _rotation; }
 
-    void Update();
+    void update();
 };
 
 } /* namespace gfxe */
