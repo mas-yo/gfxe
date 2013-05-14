@@ -10,23 +10,16 @@
 namespace gfxe
 {
 
-GFXPhysicWorld::GFXPhysicWorld() :
-        m_pConfig(NULL),
-        m_pDispatcher(NULL),
-        m_pBroadphase(NULL),
-        m_pSolver(NULL),
-        m_pDynamicsWorld(NULL)
+GFXPhysicWorld::GFXPhysicWorld()
 {
-    // TODO Auto-generated constructor stub
-
 }
 
 GFXPhysicWorld::~GFXPhysicWorld()
 {
-    if( m_pDynamicsWorld ) {
-        while( m_pDynamicsWorld->getNumCollisionObjects() )
+    if( _softRigidDynamicsWorld ) {
+        while( _softRigidDynamicsWorld->getNumCollisionObjects() )
         {
-            btCollisionObject *btcollisionobject = m_pDynamicsWorld->getCollisionObjectArray()[ 0 ];
+            btCollisionObject *btcollisionobject = _softRigidDynamicsWorld->getCollisionObjectArray()[ 0 ];
             btRigidBody *btrigidbody = btRigidBody::upcast( btcollisionobject );
 
             if( btrigidbody )
@@ -34,41 +27,41 @@ GFXPhysicWorld::~GFXPhysicWorld()
                 delete btrigidbody->getCollisionShape();
                 delete btrigidbody->getMotionState();
 
-                m_pDynamicsWorld->removeRigidBody( btrigidbody );
-                m_pDynamicsWorld->removeCollisionObject( btcollisionobject );
+                _softRigidDynamicsWorld->removeRigidBody( btrigidbody );
+                _softRigidDynamicsWorld->removeCollisionObject( btcollisionobject );
 
                 delete btrigidbody;
             }
         }
 
-        delete m_pConfig;
-        delete m_pDispatcher;
-        delete m_pBroadphase;
-        delete m_pSolver;
-        delete m_pDynamicsWorld;
+        delete _collisionConfig;
+        delete _collisionDispatcher;
+        delete _broadphaseInterface;
+        delete _constraintSolver;
+        delete _softRigidDynamicsWorld;
     }
 }
 
-void GFXPhysicWorld::Initialize()
+void GFXPhysicWorld::initialize()
 {
-    m_pConfig = new btSoftBodyRigidBodyCollisionConfiguration();
+    _collisionConfig = new btSoftBodyRigidBodyCollisionConfiguration();
 
-    m_pDispatcher = new btCollisionDispatcher( m_pConfig );
+    _collisionDispatcher = new btCollisionDispatcher( _collisionConfig );
 
-    m_pBroadphase = new btDbvtBroadphase();
+    _broadphaseInterface = new btDbvtBroadphase();
 
-    m_pSolver = new btSequentialImpulseConstraintSolver();
+    _constraintSolver = new btSequentialImpulseConstraintSolver();
 
-    m_pDynamicsWorld = new btSoftRigidDynamicsWorld( m_pDispatcher,
-                                                  m_pBroadphase,
-                                                  m_pSolver,
-                                                  m_pConfig );
+    _softRigidDynamicsWorld = new btSoftRigidDynamicsWorld( _collisionDispatcher,
+                                                           _broadphaseInterface,
+                                                           _constraintSolver,
+                                                           _collisionConfig );
 
-    m_pDynamicsWorld->setGravity( btVector3( 0.0f, 0.0f, -9.8f ) );
+    _softRigidDynamicsWorld->setGravity( btVector3( 0.0f, 0.0f, -9.8f ) );
 
 }
 
-void GFXPhysicWorld::AddRigidBody( GFX3DMeshInfo *meshInfo, float mass )
+void GFXPhysicWorld::addRigidBody( GFX3DMeshInfo *meshInfo, float mass )
 {
     btCollisionShape *btcollisionshape = new btBoxShape( btVector3( meshInfo->dimension.x * 0.5f,
                                                                     meshInfo->dimension.y * 0.5f,
@@ -118,12 +111,12 @@ void GFXPhysicWorld::AddRigidBody( GFX3DMeshInfo *meshInfo, float mass )
 
     console_print("4");
 
-    m_pDynamicsWorld->addRigidBody( meshInfo->btrigidbody );
+    _softRigidDynamicsWorld->addRigidBody( meshInfo->btrigidbody );
 }
 
-void GFXPhysicWorld::Update()
+void GFXPhysicWorld::update()
 {
-    m_pDynamicsWorld->stepSimulation( 1.0f / 60.0f );
+    _softRigidDynamicsWorld->stepSimulation( 1.0f / 60.0f );
 }
 
 } /* namespace gfxe */

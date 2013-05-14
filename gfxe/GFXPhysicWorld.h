@@ -17,20 +17,20 @@ namespace gfxe
 class GFXPhysicWorld : public Singleton<GFXPhysicWorld>
 {
 private:
-    btSoftBodyRigidBodyCollisionConfiguration *m_pConfig = NULL;
-    btCollisionDispatcher *m_pDispatcher = NULL;
-    btBroadphaseInterface *m_pBroadphase = NULL;
-    btConstraintSolver *m_pSolver = NULL;
-    btSoftRigidDynamicsWorld *m_pDynamicsWorld = NULL;
+    btSoftBodyRigidBodyCollisionConfiguration *_collisionConfig = NULL;
+    btCollisionDispatcher *_collisionDispatcher = NULL;
+    btBroadphaseInterface *_broadphaseInterface = NULL;
+    btConstraintSolver *_constraintSolver = NULL;
+    btSoftRigidDynamicsWorld *_softRigidDynamicsWorld = NULL;
 
 
 public:
     GFXPhysicWorld();
     virtual ~GFXPhysicWorld();
 
-    void Initialize();
-    void AddRigidBody( GFX3DMeshInfo* meshInfo, float mass );
-    void Update();
+    void initialize();
+    void addRigidBody( GFX3DMeshInfo* meshInfo, float mass );
+    void update();
 };
 
 } /* namespace gfxe */

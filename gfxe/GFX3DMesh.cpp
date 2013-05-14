@@ -25,10 +25,10 @@ GFX3DMesh::GFX3DMesh( GFX3DModelInfo* pModelInfo, GFX3DMeshInfo* pMeshInfo, int 
 //    if( !strcmp( pMeshInfo->name, "backgroud" ) ) return;
 
     if( !strcmp( pMeshInfo->name, "balloon" )  ) {
-        GFXPhysicWorld::Instance()->AddRigidBody( pMeshInfo, 1.0f );
+        GFXPhysicWorld::Instance()->addRigidBody( pMeshInfo, 1.0f );
         pMeshInfo->location.z = 40;
     } else {
-        GFXPhysicWorld::Instance()->AddRigidBody( pMeshInfo, 0.0f );
+        GFXPhysicWorld::Instance()->addRigidBody( pMeshInfo, 0.0f );
     }
 
     if( pMeshInfo->objtrianglelist->objmaterial == NULL ) {

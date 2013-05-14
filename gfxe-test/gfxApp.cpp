@@ -74,7 +74,7 @@ void gfxAppInit( int width, int height )
     GFXCamera::CreateInstance();
     GFXResourceManager<GFX3DModelInfo>::CreateInstance();
     GFXPhysicWorld::CreateInstance();
-    GFXPhysicWorld::Instance()->Initialize();
+    GFXPhysicWorld::Instance()->initialize();
     
 
     pModel = new GFX3DModel();
@@ -101,7 +101,7 @@ void gfxAppDraw( void )
 
     GFXRenderManager::Instance()->Render();
     
-    GFXPhysicWorld::Instance()->Update();
+    GFXPhysicWorld::Instance()->update();
 }
 
 void gfxAppToucheBegan( float x, float y, unsigned int tap_count )
