@@ -19,14 +19,14 @@ namespace gfxe
     class GFX3DModel
     {
     private:
-        std::shared_ptr<GFX3DModelInfo > m_shrModelInfo;
-        std::vector< std::unique_ptr<GFX3DMesh> > m_vecMesh;
+        std::shared_ptr<GFX3DModelInfo> _modelInfo;
+        std::vector< std::unique_ptr<GFX3DMesh> > _meshList;
 
     public:
         GFX3DModel();
         virtual ~GFX3DModel();
         
-        void Create( const char* fileName );
+        void initialize( const char* fileName );
 //        GFX3DModelInfo* GetModelInfo() { return (GFX3DModelInfo*)m_ownModelInfo; }
 //        GFX3DMesh* GetMesh( int idx ) { return m_vecMesh.at(idx); }
     };

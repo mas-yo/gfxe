@@ -24,7 +24,8 @@ using namespace gfxe;
 //    glBindAttribLocation( program->pid, 2, "TEXCOORD0" );
 //}
 
-void program_bind_attrib_location( void *ptr ) {
+static void program_bind_attrib_location( void *ptr )
+{
 
     PROGRAM *program = ( PROGRAM * )ptr;
 
@@ -36,7 +37,7 @@ void program_bind_attrib_location( void *ptr ) {
 
 
 
-void material_draw_callback( void *ptr ) {
+static void material_draw_callback( void *ptr ) {
 
     OBJMATERIAL *objmaterial = ( OBJMATERIAL * )ptr;
 
@@ -143,34 +144,34 @@ GFX3DModel::~GFX3DModel()
 {
 }
 
-void GFX3DModel::Create( const char *fileName )
+void GFX3DModel::initialize( const char *fileName )
 {
-    bool result = GFXResourceManager<GFX3DModelInfo>::Instance()->Load( fileName, m_shrModelInfo );
+    bool result = GFXResourceManager<GFX3DModelInfo>::Instance()->Load( fileName, _modelInfo );
     if( !result ) {
         console_print( "load model %s failed", fileName );
         return;
     }
 
-    for( int i = 0; i < m_shrModelInfo->n_objmesh; ++i ) {
+    for( int i = 0; i < _modelInfo->n_objmesh; ++i ) {
 
-        OBJ_optimize_mesh( m_shrModelInfo.get(), i, 128 );
+        OBJ_optimize_mesh( _modelInfo.get(), i, 128 );
 
-        OBJ_build_mesh( m_shrModelInfo.get(), i );
-        OBJ_free_mesh_vertex_data( m_shrModelInfo.get(), i );
+        OBJ_build_mesh( _modelInfo.get(), i );
+        OBJ_free_mesh_vertex_data( _modelInfo.get(), i );
 
 
-        GFX3DMesh* pMesh = new GFX3DMesh( m_shrModelInfo.get(), &m_shrModelInfo->objmesh[i], i );
+        GFX3DMesh* pMesh = new GFX3DMesh( _modelInfo.get(), &_modelInfo->objmesh[i], i );
 
-        m_vecMesh.resize( m_vecMesh.size() + 1 );
-        m_vecMesh[ m_vecMesh.size() - 1 ].reset( pMesh );
+        _meshList.resize( _meshList.size() + 1 );
+        _meshList[ _meshList.size() - 1 ].reset( pMesh );
     }
 
-    for( int i = 0;i < m_shrModelInfo->n_texture; ++i ) {
+    for( int i = 0;i < _modelInfo->n_texture; ++i ) {
 
-        console_print( "texture %s loading", m_shrModelInfo->texture[i]->name );
-        OBJ_build_texture( m_shrModelInfo.get(),
+        console_print( "texture %s loading", _modelInfo->texture[i]->name );
+        OBJ_build_texture( _modelInfo.get(),
                            i,
-                           m_shrModelInfo->texture_path,
+                           _modelInfo->texture_path,
                            TEXTURE_MIPMAP,
                            TEXTURE_FILTER_2X,
                            0.0f );
@@ -178,15 +179,15 @@ void GFX3DModel::Create( const char *fileName )
     }
 
 
-    for( int i = 0; i < m_shrModelInfo->n_objmaterial; ++i ) {
+    for( int i = 0; i < _modelInfo->n_objmaterial; ++i ) {
 
         MEMORY *fragment_shader = mopen( ( char * )"fragment.glsl", 1 );
 
         MEMORY *vertex_shader = mopen( ( char * )"vertex.glsl", 1 );
 
-        OBJMATERIAL *objmaterial = &m_shrModelInfo->objmaterial[ i ];
+        OBJMATERIAL *objmaterial = &_modelInfo->objmaterial[ i ];
 
-        OBJ_build_material( m_shrModelInfo.get(), i, NULL );
+        OBJ_build_material( _modelInfo.get(), i, NULL );
 
         if( objmaterial->dissolve == 1.0f )
             minsert( fragment_shader, ( char * )"#define SOLID_OBJECT\n", 0 );
@@ -222,7 +223,7 @@ void GFX3DModel::Create( const char *fileName )
 
         PROGRAM_link( objmaterial->program, 1 );
 
-        OBJ_set_draw_callback_material( m_shrModelInfo.get(), i, material_draw_callback );
+        OBJ_set_draw_callback_material( _modelInfo.get(), i, material_draw_callback );
 
         mclose( fragment_shader );
 

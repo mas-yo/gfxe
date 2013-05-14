@@ -15,32 +15,32 @@
 
 using namespace gfxe;
 
-GFX3DMesh::GFX3DMesh( GFX3DModelInfo* pModelInfo, GFX3DMeshInfo* pMeshInfo, int meshIdx ) :
-        m_pModelInfo( pModelInfo ), m_pMeshInfo( pMeshInfo ), m_nMeshIndex( meshIdx )
+GFX3DMesh::GFX3DMesh( GFX3DModelInfo* modelInfo, GFX3DMeshInfo* meshInfo, int meshIdx ) :
+        _modelInfo( modelInfo ), _meshInfo( meshInfo ), _meshIndex( meshIdx )
 {
-    console_print( pMeshInfo->name );
+    console_print( meshInfo->name );
 //    if( !strcmp( pMeshInfo->name, "momo" ) ) return;
 //    if( !strcmp( pMeshInfo->name, "tree" ) ) return;
 //    if( !strcmp( pMeshInfo->name, "leaf" ) ) return;
 //    if( !strcmp( pMeshInfo->name, "backgroud" ) ) return;
 
-    if( !strcmp( pMeshInfo->name, "balloon" )  ) {
-        GFXPhysicWorld::Instance()->addRigidBody( pMeshInfo, 1.0f );
-        pMeshInfo->location.z = 40;
+    if( !strcmp( meshInfo->name, "balloon" )  ) {
+        GFXPhysicWorld::Instance()->addRigidBody( meshInfo, 1.0f );
+        meshInfo->location.z = 40;
     } else {
-        GFXPhysicWorld::Instance()->addRigidBody( pMeshInfo, 0.0f );
+        GFXPhysicWorld::Instance()->addRigidBody( meshInfo, 0.0f );
     }
 
-    if( pMeshInfo->objtrianglelist->objmaterial == NULL ) {
+    if( meshInfo->objtrianglelist->objmaterial == NULL ) {
         console_print( "no material" );
         return;
     }
-    if( pMeshInfo->objtrianglelist->objmaterial->dissolve == 1.0f ) {
+    if( meshInfo->objtrianglelist->objmaterial->dissolve == 1.0f ) {
         console_print( "solid" );
-        GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::RenderSolid, RenderGroup_Solid );
+        GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::renderSolid, RenderGroup_Solid );
     } else {
         console_print( "alpha" );
-        GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::RenderAlpha, RenderGroup_Alpha );
+        GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::renderAlpha, RenderGroup_Alpha );
     }
 }
 
@@ -48,7 +48,7 @@ GFX3DMesh::~GFX3DMesh()
 {
 }
 
-void GFX3DMesh::RenderSolid()
+void GFX3DMesh::renderSolid()
 {
     GFX_push_matrix();
 
@@ -57,15 +57,15 @@ void GFX3DMesh::RenderSolid()
 //            m_pMeshInfo->location.z );
 
     mat4 mat;
-    m_pMeshInfo->btrigidbody->getWorldTransform().getOpenGLMatrix( ( float * )&mat );
+    _meshInfo->btrigidbody->getWorldTransform().getOpenGLMatrix( ( float * )&mat );
     GFX_multiply_matrix( &mat );
 
-    OBJ_draw_mesh( m_pModelInfo, m_nMeshIndex );
+    OBJ_draw_mesh( _modelInfo, _meshIndex );
 
     GFX_pop_matrix();
 }
 
-void GFX3DMesh::RenderAlpha()
+void GFX3DMesh::renderAlpha()
 {
     GFX_push_matrix();
 
@@ -73,15 +73,15 @@ void GFX3DMesh::RenderAlpha()
 //            m_pMeshInfo->location.y,
 //            m_pMeshInfo->location.z );
     mat4 mat;
-    m_pMeshInfo->btrigidbody->getWorldTransform().getOpenGLMatrix( ( float * )&mat );
+    _meshInfo->btrigidbody->getWorldTransform().getOpenGLMatrix( ( float * )&mat );
     GFX_multiply_matrix( &mat );
 
     glCullFace( GL_FRONT );
 
-    OBJ_draw_mesh( m_pModelInfo, m_nMeshIndex );
+    OBJ_draw_mesh( _modelInfo, _meshIndex );
 
     glCullFace( GL_BACK );
-    OBJ_draw_mesh( m_pModelInfo, m_nMeshIndex );
+    OBJ_draw_mesh( _modelInfo, _meshIndex );
 
     GFX_pop_matrix();
 

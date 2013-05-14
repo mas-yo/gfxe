@@ -17,11 +17,11 @@ namespace gfxe
 class GFXPhysicWorld : public Singleton<GFXPhysicWorld>
 {
 private:
-    btSoftBodyRigidBodyCollisionConfiguration *_collisionConfig = NULL;
-    btCollisionDispatcher *_collisionDispatcher = NULL;
-    btBroadphaseInterface *_broadphaseInterface = NULL;
-    btConstraintSolver *_constraintSolver = NULL;
-    btSoftRigidDynamicsWorld *_softRigidDynamicsWorld = NULL;
+    btSoftBodyRigidBodyCollisionConfiguration *_collisionConfig = nullptr;
+    btCollisionDispatcher *_collisionDispatcher = nullptr;
+    btBroadphaseInterface *_broadphaseInterface = nullptr;
+    btConstraintSolver *_constraintSolver = nullptr;
+    btSoftRigidDynamicsWorld *_softRigidDynamicsWorld = nullptr;
 
 
 public:

@@ -78,9 +78,9 @@ void gfxAppInit( int width, int height )
     
 
     pModel = new GFX3DModel();
-    pModel->Create( "scene.obj" );
+    pModel->initialize( "scene.obj" );
     pModel2 = new GFX3DModel();
-    pModel2->Create( "ram.obj" );
+    pModel2->initialize( "ram.obj" );
     
     GFXCamera::Instance()->setPosition( vec3( {0,-6,1.35} ) );
     GFXCamera::Instance()->setRotation( vec3({0,0,0}) );

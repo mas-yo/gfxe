@@ -17,17 +17,17 @@ namespace gfxe {
     class GFX3DMesh
     {
     private:
-        int m_nMeshIndex;
-        GFX3DModelInfo* m_pModelInfo;
-        GFX3DMeshInfo* m_pMeshInfo; //reference only
+        int _meshIndex;
+        GFX3DModelInfo* _modelInfo = nullptr;
+        GFX3DMeshInfo* _meshInfo = nullptr;
 //        std::unique_ptr<GFXShaderProgram> m_unqShader;
 
     public:
-        GFX3DMesh( GFX3DModelInfo* pModelInfo, GFX3DMeshInfo* pMeshInfo, int meshIdx );
+        GFX3DMesh( GFX3DModelInfo* modelInfo, GFX3DMeshInfo* meshInfo, int meshIdx );
         virtual ~GFX3DMesh();
 
-        void RenderSolid();
-        void RenderAlpha();
+        void renderSolid();
+        void renderAlpha();
 
 //        GFXShaderProgram* GetShaderProgram() { return m_unqShader.get(); }
 
