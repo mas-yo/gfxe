@@ -25,44 +25,26 @@ using namespace gfxe;
 
 GFXRenderer::~GFXRenderer()
 {
-    for( auto it = m_vecRenderFunc.begin(); it != m_vecRenderFunc.end(); ++it ) {
+    for( auto it = _targetFuncList.begin(); it != _targetFuncList.end(); ++it ) {
         delete *it;
     }
 }
 
-void GFXRenderer::RemoveRenderFunc( void* pTarget )
+void GFXRenderer::render()
 {
-    for( auto it = m_vecRenderFunc.begin(); it != m_vecRenderFunc.end(); ++it ) {
-        if( (*it)->GetTarget() == pTarget ) {
-            delete *it;
-            m_vecRenderFunc.erase( it );
-            break;
-        }
-    }
-}
-
-void GFXRenderer::Render()
-{
-    for( auto it = m_vecRenderFunc.begin(); it != m_vecRenderFunc.end(); ++it ) {
-        (*it)->CallFunc();
+    for( auto it = _targetFuncList.begin(); it != _targetFuncList.end(); ++it ) {
+        (*it)->call();
     }
 //    for_each( m_vecRenderFunc.begin(), m_vecRenderFunc.end(), []( std::unique_ptr<GFXRenderer::RenderFuncBase> p ) { p->CallFunc(); } );
 }
 
-void GFXRenderManager::RemoveRenderFunc( void* pTarget )
+void GFXRenderManager::render()
 {
-    for( GFXRenderer& renderer : m_arrRenderer ) {
-        renderer.RemoveRenderFunc( pTarget );
-    }
-}
-
-void GFXRenderManager::Render()
-{
-    m_arrRenderer[ RenderGroup_Solid ].Render();
+    _renderers[ RenderGroup_Solid ].render();
 
     glEnable( GL_BLEND );
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 
-    m_arrRenderer[ RenderGroup_Alpha ].Render();
+    _renderers[ RenderGroup_Alpha ].render();
 
 }

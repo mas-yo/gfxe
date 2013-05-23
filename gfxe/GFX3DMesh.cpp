@@ -37,6 +37,7 @@ GFX3DMesh::GFX3DMesh( GFX3DModelInfo* modelInfo, GFX3DMeshInfo* meshInfo, int me
     }
     if( meshInfo->objtrianglelist->objmaterial->dissolve == 1.0f ) {
         console_print( "solid" );
+        TargetFunction<GFX3DMesh, void, void>::newTargetFunction
         GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::renderSolid, RenderGroup_Solid );
     } else {
         console_print( "alpha" );
