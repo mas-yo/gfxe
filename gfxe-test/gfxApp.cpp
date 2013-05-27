@@ -99,7 +99,7 @@ void gfxAppDraw( void )
 
     GFXCamera::Instance()->update();
 
-    GFXRenderManager::Instance()->Render();
+    GFXRenderManager::Instance()->render();
     
     GFXPhysicWorld::Instance()->update();
 }

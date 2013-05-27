@@ -12,6 +12,7 @@
 #include "GFXRenderManager.h"
 #include "GFXShaderSimple.h"
 #include "GFXPhysicWorld.h"
+#include "TargetFunction.h"
 
 using namespace gfxe;
 
@@ -37,11 +38,10 @@ GFX3DMesh::GFX3DMesh( GFX3DModelInfo* modelInfo, GFX3DMeshInfo* meshInfo, int me
     }
     if( meshInfo->objtrianglelist->objmaterial->dissolve == 1.0f ) {
         console_print( "solid" );
-        auto targetFunc = TargetFunction<GFX3DMesh, void, void>::newTargetFunction( this, &GFX3DMesh::renderSolid );
-        GFXRenderManager::Instance()->addTargetFunc( targetFunc, RenderGroup_Solid );
+        GFXRenderManager::Instance()->addFunc( this, std::bind( &GFX3DMesh::renderSolid, this ), RenderGroup_Solid );
     } else {
         console_print( "alpha" );
-        GFXRenderManager::Instance()->AddRenderFunc( this, &GFX3DMesh::renderAlpha, RenderGroup_Alpha );
+        GFXRenderManager::Instance()->addFunc( this, std::bind( &GFX3DMesh::renderSolid, this ), RenderGroup_Alpha );
     }
 }
 

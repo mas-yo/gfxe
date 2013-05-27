@@ -14,6 +14,8 @@
 #include <vector>
 #include <mutex>
 #include <memory>
+#include <functional>
+#include <tuple>
 
 namespace gfxe {
 
@@ -27,31 +29,18 @@ namespace gfxe {
     class GFXRenderer
     {
     public:
-        typedef ITargetFunction<void> render_target_func_t;
+        typedef std::tuple< void*, std::function<void(void) >> render_func_t;
 
     private:
         std::mutex m_mutex;
-        std::vector< render_target_func_t* > _targetFuncList;
+        std::vector< render_func_t > _funcList;
+
 
     public:
         virtual ~GFXRenderer();
 
-        void addTargetFunc( render_target_func_t* targetFunc )
-        {
-            _targetFuncList.push_back( targetFunc );
-        }
-
-        template <class T>
-        void removeTarget( T* pTarget ) {
-            for( auto it = _targetFuncList.begin(); it != _targetFuncList.end(); ++it ) {
-                auto tgt = dynamic_cast<TargetFunction<T, void>*>(*it);
-                if( tgt->getTarget() == pTarget ) {
-                    delete tgt;
-                    _targetFuncList.erase( it );
-                    break;
-                }
-            }
-        }
+        void addFunc( void* obj, std::function<void(void)> func );
+        void removeFunc( void* obj );
         void render();
     };
 
@@ -61,18 +50,8 @@ namespace gfxe {
         GFXRenderer _renderers[ RenderGroup_End ];
 
     public:
-        void addTargetFunc( GFXRenderer::render_target_func_t* targetFunc, int renderGroup ) {
-            _renderers[ renderGroup ].addTargetFunc( targetFunc );
-        }
-
-        template <class T>
-        void removeTarget( T* pTarget )
-        {
-            for( GFXRenderer& renderer : _renderers ) {
-                renderer.removeTarget( pTarget );
-            }
-        }
-        
+        void addFunc( void* obj, std::function<void(void)> func, int renderGroup );
+        void removeFunc( void* );
         void render();
 
     };

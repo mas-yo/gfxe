@@ -25,17 +25,36 @@ using namespace gfxe;
 
 GFXRenderer::~GFXRenderer()
 {
-    for( auto it = _targetFuncList.begin(); it != _targetFuncList.end(); ++it ) {
-        delete *it;
-    }
+}
+
+void GFXRenderer::addFunc(void *obj, std::function<void ()> func)
+{
+    _funcList.push_back( make_tuple( obj, func ) );
+}
+
+void GFXRenderer::removeFunc( void* obj )
+{
+    auto end = std::remove_if( _funcList.begin(), _funcList.end(), [obj]( render_func_t func ) -> bool { return std::get<0>(func) == obj; } );
+    _funcList.erase( end, _funcList.end() );
 }
 
 void GFXRenderer::render()
 {
-    for( auto it = _targetFuncList.begin(); it != _targetFuncList.end(); ++it ) {
-        (*it)->call();
+    for( auto it = _funcList.begin(); it != _funcList.end(); ++it ) {
+        std::get<1>(*it)();
     }
-//    for_each( m_vecRenderFunc.begin(), m_vecRenderFunc.end(), []( std::unique_ptr<GFXRenderer::RenderFuncBase> p ) { p->CallFunc(); } );
+}
+
+void GFXRenderManager::addFunc(void *obj, std::function<void ()> func, int renderGroup)
+{
+    _renderers[renderGroup].addFunc( obj, func );
+}
+
+void GFXRenderManager::removeFunc( void* obj )
+{
+    for( GFXRenderer& renderer : _renderers ) {
+        renderer.removeFunc( obj );
+    }
 }
 
 void GFXRenderManager::render()
