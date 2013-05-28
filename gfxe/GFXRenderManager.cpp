@@ -29,19 +29,20 @@ GFXRenderer::~GFXRenderer()
 
 void GFXRenderer::addFunc(void *obj, std::function<void ()> func)
 {
-    _funcList.push_back( make_tuple( obj, func ) );
+    ObjFunc objFunc = { obj, func };
+    _functions.push_back( objFunc );
 }
 
 void GFXRenderer::removeFunc( void* obj )
 {
-    auto end = std::remove_if( _funcList.begin(), _funcList.end(), [obj]( render_func_t func ) -> bool { return std::get<0>(func) == obj; } );
-    _funcList.erase( end, _funcList.end() );
+    auto end = std::remove_if( _functions.begin(), _functions.end(), [obj]( ObjFunc& objFunc ) -> bool { return objFunc._obj == obj; } );
+    _functions.erase( end, _functions.end() );
 }
 
 void GFXRenderer::render()
 {
-    for( auto it = _funcList.begin(); it != _funcList.end(); ++it ) {
-        std::get<1>(*it)();
+    for( auto it = _functions.begin(); it != _functions.end(); ++it ) {
+        it->_func();
     }
 }
 

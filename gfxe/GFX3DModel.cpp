@@ -146,7 +146,7 @@ GFX3DModel::~GFX3DModel()
 
 void GFX3DModel::initialize( const char *fileName )
 {
-    bool result = GFXResourceManager<GFX3DModelInfo>::Instance()->Load( fileName, _modelInfo );
+    bool result = GFXResourceManager<GFX3DModelInfo>::Instance()->load( fileName, _modelInfo );
     if( !result ) {
         console_print( "load model %s failed", fileName );
         return;

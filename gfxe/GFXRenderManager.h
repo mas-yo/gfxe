@@ -28,18 +28,20 @@ namespace gfxe {
 
     class GFXRenderer
     {
-    public:
-        typedef std::tuple< void*, std::function<void(void) >> render_func_t;
+    private:
+        struct ObjFunc {
+            void* _obj;
+            std::function<void()> _func;
+        };
 
     private:
-        std::mutex m_mutex;
-        std::vector< render_func_t > _funcList;
+        std::vector< ObjFunc > _functions;
 
 
     public:
         virtual ~GFXRenderer();
 
-        void addFunc( void* obj, std::function<void(void)> func );
+        void addFunc( void* obj, std::function<void()> func );
         void removeFunc( void* obj );
         void render();
     };
@@ -50,7 +52,7 @@ namespace gfxe {
         GFXRenderer _renderers[ RenderGroup_End ];
 
     public:
-        void addFunc( void* obj, std::function<void(void)> func, int renderGroup );
+        void addFunc( void* obj, std::function<void()> func, int renderGroup );
         void removeFunc( void* );
         void render();
 
